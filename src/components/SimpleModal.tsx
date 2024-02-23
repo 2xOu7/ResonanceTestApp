@@ -1,6 +1,10 @@
 import { Component } from 'react'
 import { Box, Button, Modal, Typography } from '@mui/material'
-import { BaseComponentProps, logImpression } from 'resonance-client'
+import {
+  BaseComponentProps,
+  logConfirmation,
+  logImpression,
+} from 'resonance-client'
 const style = {
   position: 'absolute' as 'absolute',
   top: '50%',
@@ -52,6 +56,9 @@ export default class SimpleModal extends Component<BaseComponentProps, {}> {
               style={{ float: 'right' }}
               variant={'outlined'}
               color={'primary'}
+              onClick={() => {
+                logConfirmation()
+              }}
             >
               {parsedContent['first_cta_text']}
             </Button>
