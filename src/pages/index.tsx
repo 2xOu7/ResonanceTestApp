@@ -1,5 +1,10 @@
 import { Button } from '@mui/material'
-import { notifyEvent, Resonance } from 'resonance-client'
+import {
+  notifyEvent,
+  Resonance,
+  ResonanceHeadlessComponentContainer,
+} from 'resonance-client'
+import SimpleModal from '../components/SimpleModal'
 
 export default function Home() {
   return (
@@ -62,6 +67,11 @@ export default function Home() {
       >
         Red Button
       </Button>
+      <ResonanceHeadlessComponentContainer
+        campaignId={'ff25b0a9-dfe5-40d5-9578-14aa57ba59e0'}
+      >
+        <SimpleModal campaignToRender={null} isPreview={false} />
+      </ResonanceHeadlessComponentContainer>
     </div>
   )
 }
