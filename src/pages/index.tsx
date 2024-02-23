@@ -6,6 +6,7 @@ import {
   ResonanceFormatComponentContainer,
 } from 'resonance-client'
 import SimpleModal from '../components/SimpleModal'
+import NonHeadlessSimpleModal from '../components/NonHeadlessSimpleModal'
 
 export default function Home() {
   return (
@@ -64,7 +65,7 @@ export default function Home() {
         campaignFormat={'Modal'}
         slot={'full_screen'}
       >
-        <SimpleModal campaignToRender={null} isPreview={false} />
+        <NonHeadlessSimpleModal campaignToRender={null} isPreview={false} />
       </ResonanceFormatComponentContainer>
     </div>
   )
