@@ -3,6 +3,7 @@ import {
   notifyEvent,
   Resonance,
   ResonanceHeadlessComponentContainer,
+  ResonanceFormatComponentContainer,
 } from 'resonance-client'
 import SimpleModal from '../components/SimpleModal'
 
@@ -47,19 +48,6 @@ export default function Home() {
       </Button>
       <Button
         variant={'outlined'}
-        style={{
-          backgroundColor: 'purple',
-          color: 'white',
-          marginRight: '1vw',
-        }}
-        onClick={() => {
-          notifyEvent('purple_button_clicked')
-        }}
-      >
-        Purple Button
-      </Button>
-      <Button
-        variant={'outlined'}
         style={{ backgroundColor: 'red', color: 'white' }}
         onClick={() => {
           notifyEvent('red_button_clicked')
@@ -72,6 +60,12 @@ export default function Home() {
       >
         <SimpleModal campaignToRender={null} isPreview={false} />
       </ResonanceHeadlessComponentContainer>
+      <ResonanceFormatComponentContainer
+        campaignFormat={'Modal'}
+        slot={'full_screen'}
+      >
+        <SimpleModal campaignToRender={null} isPreview={false} />
+      </ResonanceFormatComponentContainer>
     </div>
   )
 }
