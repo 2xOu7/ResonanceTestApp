@@ -44,9 +44,7 @@ export default class SimpleModal extends Component<BaseComponentProps, {}> {
         autoFocus={false}
         aria-labelledby={'modal-modal-header'}
         aria-describedby={'modal-modal-description'}
-        onClose={() =>
-          tearDownCampaignById(this.props.campaignToRender.campaignId)
-        }
+        onClose={() => tearDownCampaignById(campaignToRender.campaignId)}
       >
         <Box sx={style}>
           <Typography id={'modal-modal-header'} variant={'h6'} component={'h2'}>
@@ -62,7 +60,7 @@ export default class SimpleModal extends Component<BaseComponentProps, {}> {
               color={'primary'}
               onClick={() => {
                 logConfirmation()
-                tearDownCampaignById(this.props.campaignToRender.campaignId)
+                tearDownCampaignById(campaignToRender.campaignId)
               }}
             >
               {parsedContent['first_cta_text']}
@@ -72,7 +70,7 @@ export default class SimpleModal extends Component<BaseComponentProps, {}> {
               style={{ float: 'right', marginRight: '1vw' }}
               variant={'outlined'}
               onClick={() => {
-                tearDownCampaignById(this.props.campaignToRender.campaignId)
+                tearDownCampaignById(campaignToRender.campaignId)
               }}
             >
               {parsedContent['second_cta_text']}
