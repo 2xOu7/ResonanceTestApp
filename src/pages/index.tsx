@@ -57,7 +57,7 @@ export default function Home() {
         Red Button
       </Button>
       <ResonanceHeadlessComponentContainer
-        campaignId={'ff25b0a9-dfe5-40d5-9578-14aa57ba59e0'}
+        campaignId={'c101ba0e-49b4-45cb-b99c-cd6a833c480f'}
       >
         <SimpleModal campaignToRender={null} isPreview={false} />
       </ResonanceHeadlessComponentContainer>
