@@ -62,10 +62,7 @@ export default function Home() {
       >
         <SimpleModal campaignToRender={null} isPreview={false} />
       </ResonanceHeadlessComponentContainer>
-      <ResonanceFormatComponentContainer
-        campaignFormat={'Modal'}
-        slot={'full_screen'}
-      >
+      <ResonanceFormatComponentContainer campaignFormat={'Modal'}>
         <NonHeadlessSimpleModal campaignToRender={null} isPreview={false} />
       </ResonanceFormatComponentContainer>
     </div>
