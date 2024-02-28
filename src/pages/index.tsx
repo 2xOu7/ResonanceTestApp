@@ -15,6 +15,7 @@ export default function Home() {
         apiKey={'603971ba-d787-45c0-8d88-a10053bf1616'}
         eventContext={{}}
         externalUserId={'123'}
+        userAttributes={{ user_locale: 'usa' }}
       />
       <Button
         variant={'outlined'}
