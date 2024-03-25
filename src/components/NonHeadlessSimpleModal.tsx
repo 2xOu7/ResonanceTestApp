@@ -23,9 +23,7 @@ const style = {
 
 export default class SimpleModal extends Component<BaseComponentProps, {}> {
   componentDidMount() {
-    if (!this.props.isPreview) {
-      logImpression()
-    }
+    logImpression()
   }
 
   render() {
