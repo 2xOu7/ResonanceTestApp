@@ -7,6 +7,7 @@ import {
 } from 'resonance-client'
 import SimpleModal from '../components/SimpleModal'
 import NonHeadlessSimpleModal from '../components/NonHeadlessSimpleModal'
+import Tooltip from '../components/Tooltip'
 
 export default function Home() {
   return (
@@ -64,6 +65,9 @@ export default function Home() {
       </ResonanceHeadlessComponentContainer>
       <ResonanceFormatComponentContainer campaignFormat={'Modal'}>
         <NonHeadlessSimpleModal campaignToRender={null} isPreview={false} />
+      </ResonanceFormatComponentContainer>
+      <ResonanceFormatComponentContainer campaignFormat={'Tooltip'}>
+        <Tooltip campaignToRender={null} isPreview={false} />
       </ResonanceFormatComponentContainer>
     </div>
   )
