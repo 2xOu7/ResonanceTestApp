@@ -4,7 +4,8 @@ import {
   BaseComponentProps,
   logConfirmation,
   logImpression,
-  tearDownCampaignById,
+  nonHeadlessMoveToNextStep,
+  tearDownCampaign,
 } from 'resonance-client'
 const style = {
   position: 'absolute' as 'absolute',
@@ -35,8 +36,6 @@ export default class SimpleModal extends Component<BaseComponentProps, {}> {
 
     const { variantResult } = campaignToRender
     const { content } = variantResult
-    const { props } = content
-    const parsedContent = JSON.parse(props ?? '{}')
 
     return (
       <Modal
@@ -44,14 +43,14 @@ export default class SimpleModal extends Component<BaseComponentProps, {}> {
         autoFocus={false}
         aria-labelledby={'modal-modal-header'}
         aria-describedby={'modal-modal-description'}
-        onClose={() => tearDownCampaignById(campaignToRender.campaignId)}
+        onClose={() => tearDownCampaign()}
       >
         <Box sx={style}>
           <Typography id={'modal-modal-header'} variant={'h6'} component={'h2'}>
-            {parsedContent['header']}
+            {content['header']}
           </Typography>
           <Typography id={'modal-modal-description'} sx={{ mt: 2 }}>
-            {parsedContent['description']}
+            {content['description']}
           </Typography>
           <div style={{ marginTop: '5vh' }}>
             <Button
@@ -59,21 +58,36 @@ export default class SimpleModal extends Component<BaseComponentProps, {}> {
               variant={'outlined'}
               color={'primary'}
               onClick={() => {
-                logConfirmation()
-                tearDownCampaignById(campaignToRender.campaignId)
+                if (content['first_cta_action'] === 'Confirm') {
+                  logConfirmation()
+                  tearDownCampaign()
+                } else if (content['first_cta_action'] == 'Move To Next Step') {
+                  nonHeadlessMoveToNextStep()
+                } else {
+                  tearDownCampaign()
+                }
               }}
             >
-              {parsedContent['first_cta_text']}
+              {content['first_cta_text']}
             </Button>
             <Button
               color={'success'}
               style={{ float: 'right', marginRight: '1vw' }}
               variant={'outlined'}
               onClick={() => {
-                tearDownCampaignById(campaignToRender.campaignId)
+                if (content['second_cta_action'] === 'Confirm') {
+                  logConfirmation()
+                  tearDownCampaign()
+                } else if (
+                  content['second_cta_action'] == 'Move To Next Step'
+                ) {
+                  nonHeadlessMoveToNextStep()
+                } else {
+                  tearDownCampaign()
+                }
               }}
             >
-              {parsedContent['second_cta_text']}
+              {content['second_cta_text']}
             </Button>
           </div>
         </Box>
