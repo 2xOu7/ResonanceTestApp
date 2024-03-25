@@ -32,6 +32,7 @@ export default function Home() {
         Pink Button
       </Button>
       <Button
+        data-tooltip-id={'blue_button_tooltip'}
         variant={'outlined'}
         style={{ backgroundColor: 'blue', color: 'white', marginRight: '1vw' }}
         onClick={() => {
@@ -50,6 +51,7 @@ export default function Home() {
         Green Button
       </Button>
       <Button
+        data-tooltip-id={'red_button_tooltip'}
         variant={'outlined'}
         style={{ backgroundColor: 'red', color: 'white' }}
         onClick={() => {
