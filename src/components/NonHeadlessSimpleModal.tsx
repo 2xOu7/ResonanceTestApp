@@ -4,6 +4,7 @@ import {
   BaseComponentProps,
   logConfirmation,
   logImpression,
+  nonHeadlessMoveToNextStep,
   tearDownCampaign,
 } from 'resonance-client'
 const style = {
@@ -57,8 +58,14 @@ export default class SimpleModal extends Component<BaseComponentProps, {}> {
               variant={'outlined'}
               color={'primary'}
               onClick={() => {
-                logConfirmation()
-                tearDownCampaign()
+                if (content['first_cta_action'] === 'Confirm') {
+                  logConfirmation()
+                  tearDownCampaign()
+                } else if (content['first_cta_action'] == 'Move To Next Step') {
+                  nonHeadlessMoveToNextStep()
+                } else {
+                  tearDownCampaign()
+                }
               }}
             >
               {content['first_cta_text']}
@@ -68,7 +75,16 @@ export default class SimpleModal extends Component<BaseComponentProps, {}> {
               style={{ float: 'right', marginRight: '1vw' }}
               variant={'outlined'}
               onClick={() => {
-                tearDownCampaign()
+                if (content['second_cta_action'] === 'Confirm') {
+                  logConfirmation()
+                  tearDownCampaign()
+                } else if (
+                  content['second_cta_action'] == 'Move To Next Step'
+                ) {
+                  nonHeadlessMoveToNextStep()
+                } else {
+                  tearDownCampaign()
+                }
               }}
             >
               {content['second_cta_text']}
