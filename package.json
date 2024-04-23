@@ -18,7 +18,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-tooltip": "^5.26.3",
-    "resonance-client": "^1.0.45"
+    "resonance-client": "^1.0.47"
   },
   "devDependencies": {
     "@types/node": "^20",
