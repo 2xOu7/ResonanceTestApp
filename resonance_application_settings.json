@@ -1,11 +1,3 @@
 {
-  "config": {
-    "events": [
-      {
-        "eventId": "file_upload_button_clicked",
-        "eventDescription": "This event is fired when a user uploads a file",
-        "eventLabel": "File Upload Button Clicked"
-      }
-    ]
-  }
+  "config": {}
 }
