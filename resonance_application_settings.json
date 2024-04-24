@@ -6,6 +6,26 @@
         "eventDescription": "This event is fired when a user clicks the red button",
         "eventLabel": "Red Button Clicked"
       }
+    ],
+    "formats": [
+      {
+        "slots": [],
+        "formatInputs": [
+          {
+            "inputId": "header",
+            "inputDescription": "This is the tooltip header input.",
+            "inputType": "text",
+            "inputName": "Header"
+          },
+          {
+            "inputId": "selector",
+            "inputDescription": "This is the tooltip selector input.",
+            "inputType": "text",
+            "inputName": "Selector"
+          }
+        ],
+        "formatName": "Tooltip"
+      }
     ]
   }
 }
