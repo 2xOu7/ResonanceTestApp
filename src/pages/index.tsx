@@ -2,10 +2,8 @@ import { Button } from '@mui/material'
 import {
   notifyEvent,
   Resonance,
-  ResonanceHeadlessComponentContainer,
   ResonanceFormatComponentContainer,
 } from 'resonance-client'
-import SimpleModal from '../components/SimpleModal'
 import NonHeadlessSimpleModal from '../components/NonHeadlessSimpleModal'
 import Tooltip from '../components/Tooltip'
 
@@ -60,11 +58,6 @@ export default function Home() {
       >
         Red Button
       </Button>
-      <ResonanceHeadlessComponentContainer
-        campaignId={'c101ba0e-49b4-45cb-b99c-cd6a833c480f'}
-      >
-        <SimpleModal campaignToRender={null} isPreview={false} />
-      </ResonanceHeadlessComponentContainer>
       <ResonanceFormatComponentContainer campaignFormat={'Modal'}>
         <NonHeadlessSimpleModal campaignToRender={null} isPreview={false} />
       </ResonanceFormatComponentContainer>
