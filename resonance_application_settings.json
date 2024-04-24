@@ -1,3 +1,11 @@
 {
-  "config": {}
+  "config": {
+    "events": [
+      {
+        "eventId": "red_button_clicked",
+        "eventDescription": "This event is fired when a user clicks the red button",
+        "eventLabel": "Red Button Clicked"
+      }
+    ]
+  }
 }
