@@ -2,6 +2,7 @@
   push:
     branches:
       - main
+      - master
     paths:
       - resonance_application_settings.json
 name: Sync resonance-settings
