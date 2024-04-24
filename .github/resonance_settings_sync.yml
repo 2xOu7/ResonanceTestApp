@@ -1,0 +1,30 @@
+"on":
+  push:
+    branches:
+      - main
+    paths:
+      - resonance_application_settings.json
+name: Sync resonance-settings
+jobs:
+  resonance-sync-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: get properties
+        id: json_properties
+        uses: ActionsTools/read-json-action@main
+        with:
+          file_path: "resonance_application_settings.json"
+
+      - name: "Call API"
+        uses: indiesdev/curl@v1.1
+        with:
+          url: https://resonance-portal-service-1876-cc27fffe-ljf4zp1b.onporter.run/api/github/configsettings
+          method: "POST"
+          accept: 200
+          body: ${{steps.json_properties.outputs.config}}
+          timeout: 20000
+          bearer-token: ${{ secrets.RESONANCE_GITHUB_SECRET_TOKEN }}
+          log-response: true
+          retries: 3
