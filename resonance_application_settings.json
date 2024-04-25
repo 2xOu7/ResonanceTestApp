@@ -7,6 +7,18 @@
         "eventLabel": "Red Button Clicked"
       }
     ],
+    "clickThroughActions": [
+      {
+        "ctaId": "redirectToHomePage",
+        "ctaLabel": "Redirect To Home Page",
+        "ctaDescription": "Redirects a user to the home page"
+      },
+      {
+        "ctaId": "applyPromotionForUser",
+        "ctaLabel": "Apply Promotion For User",
+        "ctaDescription": "Applies a promotion for user"
+      }
+    ],
     "formats": [
       {
         "slots": [],
