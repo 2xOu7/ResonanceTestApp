@@ -11,10 +11,10 @@ export default function Home() {
   return (
     <div style={{ textAlign: 'center', marginTop: '5vh' }}>
       <Resonance
-        apiKey={'603971ba-d787-45c0-8d88-a10053bf1616'}
-        eventContext={{}}
-        externalUserId={'123'}
-        userAttributes={{ user_locale: 'usa' }}
+        apiKey={'<your-api-key>'}
+        eventContext={{}} //  add event context if needed
+        externalUserId={'logged-in-user-id'}
+        userAttributes={{}} // add user attributes if needed
       />
       <Button
         variant={'outlined'}
