@@ -13,7 +13,7 @@
         "formatInputs": [
           {
             "inputId": "header",
-            "inputDescription": "This is the tooltip header input.",
+            "inputDescription": "This is the tooltip header.",
             "inputType": "text",
             "inputName": "Header"
           },
@@ -31,7 +31,7 @@
           },
           {
             "inputId": "selector",
-            "inputDescription": "This is the tooltip selector input.",
+            "inputDescription": "This is the tooltip selector.",
             "inputType": "text",
             "inputName": "Selector"
           }
