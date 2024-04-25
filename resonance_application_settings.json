@@ -18,6 +18,12 @@
             "inputName": "Header"
           },
           {
+            "inputId": "cta_text",
+            "inputDescription": "This is the tooltip button text.",
+            "inputType": "text",
+            "inputName": "CTA"
+          },
+          {
             "inputId": "selector",
             "inputDescription": "This is the tooltip selector input.",
             "inputType": "text",

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { BaseComponentProps, logImpression } from 'resonance-client'
 import { Tooltip as ReactTooltip } from 'react-tooltip'
+import { Button } from '@mui/material'
 
 export default class MyTooltip extends Component<BaseComponentProps, {}> {
   componentDidMount() {
@@ -23,7 +24,9 @@ export default class MyTooltip extends Component<BaseComponentProps, {}> {
         id={content['selector']}
         place={'right-end'}
         isOpen={true}
-      />
+      >
+        <Button>{content['cta_text']}</Button>
+      </ReactTooltip>
     )
   }
 }
