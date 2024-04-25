@@ -18,10 +18,16 @@
             "inputName": "Header"
           },
           {
-            "inputId": "cta_text",
-            "inputDescription": "This is the tooltip button text.",
+            "inputId": "confirmation_cta_text",
+            "inputDescription": "This is the tooltip confirmation button text.",
             "inputType": "text",
-            "inputName": "CTA"
+            "inputName": "Confirmation CTA"
+          },
+          {
+            "inputId": "dismissal_cta_text",
+            "inputDescription": "This is the tooltip dismissal button text.",
+            "inputType": "text",
+            "inputName": "Dismissal CTA"
           },
           {
             "inputId": "selector",
