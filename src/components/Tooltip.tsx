@@ -14,7 +14,7 @@ export default class MyTooltip extends Component<{}, {}> {
         {({ campaignToRender }) => {
           if (
             campaignToRender === null ||
-            campaignToRender.campaignFormat === 'Tooltip'
+            campaignToRender.campaignFormat !== 'Tooltip'
           ) {
             return null
           }
