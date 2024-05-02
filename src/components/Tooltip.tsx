@@ -4,10 +4,6 @@ import { Tooltip as ReactTooltip } from 'react-tooltip'
 import { Button } from '@mui/material'
 
 export default class MyTooltip extends Component<{}, {}> {
-  componentDidMount() {
-    logImpression()
-  }
-
   render(): React.ReactNode {
     return (
       <PromptCampaignContext.Consumer>
@@ -19,6 +15,7 @@ export default class MyTooltip extends Component<{}, {}> {
             return null
           }
 
+          logImpression()
           const { variantResult } = campaignToRender
           const { content } = variantResult
           return (

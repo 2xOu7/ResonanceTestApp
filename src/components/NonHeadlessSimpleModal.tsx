@@ -23,10 +23,6 @@ const style = {
 }
 
 export default class SimpleModal extends Component<{}, {}> {
-  componentDidMount() {
-    logImpression()
-  }
-
   render() {
     return (
       <PromptCampaignContext.Consumer>
@@ -38,6 +34,7 @@ export default class SimpleModal extends Component<{}, {}> {
             return null
           }
 
+          logImpression()
           const { variantResult } = campaignToRender
           const { content } = variantResult
 
