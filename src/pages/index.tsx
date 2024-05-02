@@ -1,7 +1,34 @@
 import { Button } from '@mui/material'
-import { notifyEvent, MicrocopyContext } from 'resonance-client'
+import {
+  notifyEvent,
+  MicrocopyContext,
+  PromptCampaignContext,
+} from 'resonance-client'
 import NonHeadlessSimpleModal from '../components/NonHeadlessSimpleModal'
 import Tooltip from '../components/Tooltip'
+import React, { Component } from 'react'
+
+class EmbeddedMicrocopyExperiment extends Component<{}, {}> {
+  componentDidMount() {}
+
+  render() {
+    return (
+      <PromptCampaignContext.Consumer>
+        {({ campaignToRender }) => {
+          if (
+            campaignToRender === null ||
+            campaignToRender.campaignId !==
+              'cd0a2aa2-c1ce-4515-8d04-5bf65b5379d0'
+          ) {
+            return null
+          }
+
+          return <p>{campaignToRender.variantResult.content['text']}</p>
+        }}
+      </PromptCampaignContext.Consumer>
+    )
+  }
+}
 
 export default function Home() {
   return (
@@ -64,6 +91,7 @@ export default function Home() {
             </Button>
             <NonHeadlessSimpleModal />
             <Tooltip />
+            <EmbeddedMicrocopyExperiment />
           </div>
         )
       }}
