@@ -1,4 +1,14 @@
-import { Box, Button, Modal, Typography } from '@mui/material'
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Modal,
+  Typography,
+} from '@mui/material'
 import { notifyEvent } from 'resonance-client'
 import React, { Component } from 'react'
 
@@ -18,6 +28,14 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
     )
 
     chameleon.identify('123')
+  }
+
+  handleClickOpen = () => {
+    this.setState({ isOpen: true })
+  }
+
+  handleClose = () => {
+    this.setState({ isOpen: false })
   }
 
   render() {
@@ -85,20 +103,28 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
         >
           Red Button
         </Button>
-        <Modal
+        <Dialog
           open={this.state.isOpen}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
+          onClose={this.handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
         >
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Text in a modal
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-          </Box>
-        </Modal>
+          <DialogTitle id="alert-dialog-title">
+            {"Use Google's location service?"}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Let Google help apps determine location. This means sending
+              anonymous location data to Google, even when no apps are running.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleClose}>Disagree</Button>
+            <Button onClick={this.handleClose} autoFocus>
+              Agree
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
     )
   }
