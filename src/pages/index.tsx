@@ -1,16 +1,14 @@
 import {
-  Box,
   Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
-  Modal,
-  Typography,
 } from '@mui/material'
 import { notifyEvent } from 'resonance-client'
 import React, { Component } from 'react'
+import userflow from 'userflow.js'
 
 export default class Home extends Component<{}, { isOpen: boolean }> {
   constructor(props: {}) {
@@ -20,7 +18,14 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    userflow.init('ct_h7n2jn3xtndateqe4prm6gifye')
+    await userflow.identify('123', {
+      name: 'piggy',
+      email: 'piggy@gmail.com',
+      signed_up_at: '06/19/2024',
+    })
+
     const chameleon = require('@chamaeleonidae/chmln')
     chameleon.init(
       'S84xJ6DS6NJV1NT6wpgtCJ58XwnSXcoZC9e2IjTaKqCWDl-1ShZoy-FdUvTuEU0fJ4Dtyj',

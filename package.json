@@ -19,7 +19,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-tooltip": "^5.26.3",
-    "resonance-client": "^1.0.54"
+    "resonance-client": "^1.0.54",
+    "userflow.js": "^2.12.0"
   },
   "devDependencies": {
     "@types/node": "^20",
