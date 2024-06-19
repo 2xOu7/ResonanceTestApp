@@ -94,6 +94,7 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
           Green Button
         </Button>
         <Button
+          id={'red_button'}
           data-tooltip-id={'red_button_tooltip'}
           variant={'outlined'}
           style={{ backgroundColor: 'red', color: 'white' }}
