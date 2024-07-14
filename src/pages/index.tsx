@@ -47,7 +47,7 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
             notifyEvent('pink_button_clicked')
           }}
         >
-          Pink Button
+          View Custom Report
         </Button>
         <Button
           data-tooltip-id={'blue_button_tooltip'}
@@ -61,7 +61,7 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
             notifyEvent('blue_button_clicked')
           }}
         >
-          Blue Button
+          Send Survey
         </Button>
         <Button
           variant={'outlined'}
@@ -74,7 +74,7 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
             notifyEvent('green_button_clicked')
           }}
         >
-          Green Button
+          Send Chat
         </Button>
         <Button
           id={'red_button'}
