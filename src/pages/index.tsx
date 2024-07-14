@@ -82,10 +82,10 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
           variant={'outlined'}
           style={{ backgroundColor: 'red', color: 'white' }}
           onClick={() => {
-            notifyEvent('Red Button Clicked')
+            notifyEvent('Doctor Sends Reminder')
           }}
         >
-          Red Button
+          Send Reminder
         </Button>
         <SimpleModal />
       </div>
