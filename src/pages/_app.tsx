@@ -18,8 +18,8 @@ export default function App({ Component, pageProps }: AppProps) {
         apiKey={'603971ba-d787-45c0-8d88-a10053bf1616'}
         userAttributes={{}}
         eventContext={{
-          user_first_name: "Jane",
-          user_last_name: "Doe"
+          "User First Name": "Jane",
+          "User Last Name": "Doe"
         }}
       >
         <Component {...pageProps} />
