@@ -17,7 +17,10 @@ export default function App({ Component, pageProps }: AppProps) {
         externalUserId={'124'}
         apiKey={'603971ba-d787-45c0-8d88-a10053bf1616'}
         userAttributes={{}}
-        eventContext={{}}
+        eventContext={{
+          user_first_name: "Jane",
+          user_last_name: "Doe"
+        }}
       >
         <Component {...pageProps} />
       </Resonance>
