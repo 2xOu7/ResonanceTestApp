@@ -11,12 +11,11 @@ export default function App({ Component, pageProps }: AppProps) {
     <ResonanceMicrocopyProvider
       externalUserId={'124'}
       apiKey={'603971ba-d787-45c0-8d88-a10053bf1616'}
-      userAttributes={{ user_locale: 'usa' }}
+      eventContext={{}}
     >
       <Resonance
         externalUserId={'124'}
         apiKey={'603971ba-d787-45c0-8d88-a10053bf1616'}
-        userAttributes={{}}
         eventContext={{
           "User First Name": "Jane",
           "User Last Name": "Doe"
