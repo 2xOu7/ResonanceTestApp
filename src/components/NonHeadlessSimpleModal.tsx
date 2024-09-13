@@ -3,7 +3,6 @@ import { Box, Button, Modal, Typography } from '@mui/material'
 import {
   logConfirmation,
   logImpression,
-  nonHeadlessMoveToNextStep,
   tearDownCampaign,
   PromptCampaignContext,
 } from 'resonance-client'
@@ -66,10 +65,6 @@ export default class SimpleModal extends Component<{}, {}> {
                       if (content['first_cta_action'] === 'Confirm') {
                         logConfirmation()
                         tearDownCampaign()
-                      } else if (
-                        content['first_cta_action'] == 'Move To Next Step'
-                      ) {
-                        nonHeadlessMoveToNextStep()
                       } else {
                         tearDownCampaign()
                       }
@@ -85,10 +80,6 @@ export default class SimpleModal extends Component<{}, {}> {
                       if (content['second_cta_action'] === 'Confirm') {
                         logConfirmation()
                         tearDownCampaign()
-                      } else if (
-                        content['second_cta_action'] == 'Move To Next Step'
-                      ) {
-                        nonHeadlessMoveToNextStep()
                       } else {
                         tearDownCampaign()
                       }

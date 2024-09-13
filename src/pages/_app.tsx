@@ -4,25 +4,20 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import type { AppProps } from 'next/app'
 import 'react-tooltip/dist/react-tooltip.css'
-import { ResonanceMicrocopyProvider, Resonance } from 'resonance-client'
+import { Resonance } from 'resonance-client'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ResonanceMicrocopyProvider
-      externalUserId={'125'}
-      apiKey={'39eaf65b62a49a1e5efba6c32a14b083b8adf79d63ec417fcbcb41a10704116e0dbf6b1163c9a69981349f91ff23b890'}
-      eventContext={{}}
-    >
       <Resonance
         externalUserId={'125'}
-        apiKey={'39eaf65b62a49a1e5efba6c32a14b083b8adf79d63ec417fcbcb41a10704116e0dbf6b1163c9a69981349f91ff23b890'}
+        apiKey={'c04b043b200f6cf9d191fa8826550d62e3e4abe37c6eb86b13aaefa413d0b234dd2742713142812aa0c25188ac587be2'}
         eventContext={{
           "User First Name": "Jane",
           "User Last Name": "Doe"
         }}
+        userAttributes={{}}
       >
         <Component {...pageProps} />
       </Resonance>
-    </ResonanceMicrocopyProvider>
   )
 }
