@@ -12,27 +12,6 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
     }
   }
 
-  async componentDidMount() {
-    userflow.init('ct_h7n2jn3xtndateqe4prm6gifye')
-    await userflow.identify('123', {
-      name: 'piggy',
-      email: 'piggy@gmail.com',
-      signed_up_at: '06/19/2024',
-    })
-
-    const chameleon = require('@chamaeleonidae/chmln')
-    chameleon.init(
-      'S84xJ6DS6NJV1NT6wpgtCJ58XwnSXcoZC9e2IjTaKqCWDl-1ShZoy-FdUvTuEU0fJ4Dtyj',
-      { fastUrl: 'https://fast.chameleon.io/' }
-    )
-
-    chameleon.identify('123')
-  }
-
-  handleClose = () => {
-    this.setState({ isOpen: false })
-  }
-
   render() {
     return (
       <div style={{ textAlign: 'center', marginTop: '5vh' }}>
@@ -44,7 +23,7 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
             marginRight: '1vw',
           }}
           onClick={() => {
-            notifyEvent('pink_button_clicked')
+            notifyEvent('Pink Button Clicked')
           }}
         >
           View Custom Report
@@ -58,7 +37,7 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
             marginRight: '1vw',
           }}
           onClick={() => {
-            notifyEvent('blue_button_clicked')
+            notifyEvent('Blue Button Clicked')
           }}
         >
           Send Survey
@@ -71,7 +50,7 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
             marginRight: '1vw',
           }}
           onClick={() => {
-            notifyEvent('green_button_clicked')
+            notifyEvent('Green Button Clicked')
           }}
         >
           Send Chat
