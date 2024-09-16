@@ -9,11 +9,15 @@ import { useState } from 'react'
 
 export default function App({ Component, pageProps }: AppProps) {
   const [role, setRole] = useState<string>('')
+  const [userId, setUserId] = useState<string>('')
 
   return (
-      <>
-        <p>Role</p>
-        <input onChange={e => setRole(e.target.value)} value={role} />
+    <>
+      <p>Role</p>
+      <input onChange={e => setRole(e.target.value)} value={role} />
+
+      <p>User ID</p>
+      <input onChange={e => setUserId(e.target.value)} value={userId} />
       <Resonance
         externalUserId={'125'}
         apiKey={'c04b043b200f6cf9d191fa8826550d62e3e4abe37c6eb86b13aaefa413d0b234dd2742713142812aa0c25188ac587be2'}
@@ -21,10 +25,11 @@ export default function App({ Component, pageProps }: AppProps) {
           "User First Name": "Jane",
           "User Last Name": "Doe"
         }}
-        userAttributes={{role}}
+        userAttributes={{ role }}
+        useContextualTargeting={true}
       >
         <Component {...pageProps} />
       </Resonance>
-      </>
+    </>
   )
 }
