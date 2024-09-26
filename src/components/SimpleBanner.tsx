@@ -22,13 +22,13 @@ export default class SimpleBanner extends Component<{}, {}> {
 
           const copy = copiesToFilter[0]
 
-          return <Box sx={{ width: '100%', bgcolor: 'background.paper', p: 2 }}>
+          return <Box style={{marginLeft: '20vw', marginRight: '20vw'}}>
             <Alert severity={"info"}>
               <Typography variant={"body1"}>
                 {copy.variant.content['description']}
               </Typography>
               <Button>
-                {copy.variant.content['cta']}
+                {copy.variant.content['button_text']}
               </Button>
             </Alert>
           </Box>
