@@ -1,8 +1,8 @@
 import { Button } from '@mui/material'
 import { notifyEvent } from 'resonance-client'
 import React, { Component } from 'react'
-import userflow from 'userflow.js'
 import SimpleModal from '../components/NonHeadlessSimpleModal'
+import SimpleBanner from '../components/SimpleBanner'
 
 export default class Home extends Component<{}, { isOpen: boolean }> {
   constructor(props: {}) {
@@ -67,6 +67,7 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
           Send Reminder
         </Button>
         <SimpleModal />
+        <SimpleBanner/>
       </div>
     )
   }

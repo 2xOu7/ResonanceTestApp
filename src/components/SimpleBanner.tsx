@@ -7,7 +7,7 @@ import {
 } from 'resonance-client'
 import { Button } from '@mui/material'
 
-export default class SimpleModal extends Component<{}, {}> {
+export default class SimpleBanner extends Component<{}, {}> {
   render() {
     return (
       <MicrocopyContext.Consumer>
