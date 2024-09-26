@@ -67,6 +67,8 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
           Send Reminder
         </Button>
         <SimpleModal />
+        <br/>
+        <br/>
         <SimpleBanner/>
       </div>
     )
