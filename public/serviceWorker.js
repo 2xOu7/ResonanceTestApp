@@ -13,6 +13,8 @@ self.onnotificationclick = async (event) => {
 self.onpush = async (event) => {
   try {
     const parsedData = event.data.json()
+    console.log(parsedData)
+
     await self.registration.showNotification(parsedData.title, {
       body: parsedData.body,
       icon: parsedData.icon,
