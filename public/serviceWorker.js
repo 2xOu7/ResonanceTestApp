@@ -1,7 +1,7 @@
-let key = ''
+let tabId = ''
 
 self.onmessage = (event) => {
-  key = event.data
+  tabId = event.data
 }
 
 self.onnotificationclick = async (event) => {
@@ -13,19 +13,18 @@ self.onnotificationclick = async (event) => {
 self.onpush = async (event) => {
   try {
     const parsedData = event.data.json()
-    console.log(parsedData)
-
-    await self.registration.showNotification(parsedData.title, {
-      body: parsedData.body,
-      icon: parsedData.icon,
+    const { content } = parsedData
+    await self.registration.showNotification(content.title, {
+      body: content.body,
+      icon: content.icon,
       actions: [
         {
-          action: parsedData.firstActionUrl,
-          title: parsedData.firstActionTitle,
+          action: content.firstActionUrl,
+          title: content.firstActionTitle,
         },
         {
-          action: parsedData.secondActionUrl,
-          title: parsedData.secondActionTitle,
+          action: content.secondActionUrl,
+          title: content.secondActionTitle,
         },
       ],
     })
