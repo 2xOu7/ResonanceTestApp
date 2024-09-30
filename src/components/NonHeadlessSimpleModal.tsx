@@ -1,8 +1,8 @@
 import { Component } from 'react'
 import { Box, Button, Modal, Typography } from '@mui/material'
 import {
-  logConfirmation,
-  logImpression,
+  logOverlayConfirmation,
+  logOverlayImpression,
   tearDownCampaign,
   PromptCampaignContext,
 } from 'resonance-client'
@@ -33,7 +33,7 @@ export default class SimpleModal extends Component<{}, {}> {
             return null
           }
 
-          logImpression()
+          logOverlayImpression()
           const { variantResult } = campaignToRender
           const { content } = variantResult
 
@@ -63,7 +63,7 @@ export default class SimpleModal extends Component<{}, {}> {
                     color={'primary'}
                     onClick={() => {
                       if (content['first_cta_action'] === 'Confirm') {
-                        logConfirmation()
+                        logOverlayConfirmation()
                         tearDownCampaign()
                       } else {
                         tearDownCampaign()
@@ -78,7 +78,7 @@ export default class SimpleModal extends Component<{}, {}> {
                     variant={'outlined'}
                     onClick={() => {
                       if (content['second_cta_action'] === 'Confirm') {
-                        logConfirmation()
+                        logOverlayConfirmation()
                         tearDownCampaign()
                       } else {
                         tearDownCampaign()
