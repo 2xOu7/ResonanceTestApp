@@ -30,8 +30,8 @@ self.onpush = async (event) => {
       ],
     })
 
-    const bc = new BroadcastChannel(`push-${tabId}`)
     if (requestType === 'impression') {
+      const bc = new BroadcastChannel(`${tabId}`)
       bc.postMessage({
         campaignId,
         variantId,
