@@ -25,7 +25,7 @@ self.onnotificationclick = async (event) => {
           Authorization: `${key}`,
           "Content-Type": "application/json",
         },
-        body: {
+        body: JSON.stringify({
           campaignId,
           variantId,
           variantName,
@@ -33,7 +33,7 @@ self.onnotificationclick = async (event) => {
           eventType: 'confirmation',
           campaignType: 'push',
           userAttributes,
-        },
+        }),
       })
     }
   }
@@ -89,7 +89,7 @@ self.onpush = async (event) => {
           Authorization: `${key}`,
           "Content-Type": "application/json",
         },
-        body: {
+        body: JSON.stringify({
           campaignId,
           variantId,
           variantName,
@@ -97,7 +97,7 @@ self.onpush = async (event) => {
           eventType: 'impression',
           campaignType: 'push',
           userAttributes,
-        },
+        }),
       })
     }
   } catch (e) {
