@@ -28,6 +28,18 @@ self.onpush = async (event) => {
         },
       ],
     })
+
+    const bc = new BroadcastChannel(`push-${tabId}`)
+    if (parsedData.requestType === 'impression') {
+      bc.postMessage({
+        campaignId: parsedData.campaignId,
+        variantId: parsedData.variantId,
+        variantName: parsedData.variantName,
+        eventType: 'impression'
+      })
+
+      bc.close()
+    }
   } catch (e) {
     console.error(e)
   }
