@@ -6,7 +6,24 @@ self.onmessage = (event) => {
 
 self.onnotificationclick = async (event) => {
   if (event.action && event.action.length > 0) {
-    await self.clients.openWindow(event.action)
+    const { url, campaignId, variantId, variantName, requestType } = JSON.parse(
+      event.action
+    )
+
+    await self.clients.openWindow(url)
+
+    if (requestType === 'impression') {
+      const bc = new BroadcastChannel(`${tabId}`)
+
+      bc.postMessage({
+        campaignId,
+        variantId,
+        variantName,
+        eventType: 'confirmation',
+      })
+
+      bc.close()
+    }
   }
 }
 
@@ -20,11 +37,23 @@ self.onpush = async (event) => {
       icon: content.icon,
       actions: [
         {
-          action: content.firstActionUrl,
+          action: JSON.stringify({
+            url: content.firstActionUrl,
+            campaignId,
+            variantId,
+            variantName,
+            requestType,
+          }),
           title: content.firstActionTitle,
         },
         {
-          action: content.secondActionUrl,
+          action: JSON.stringify({
+            url: content.secondActionUrl,
+            campaignId,
+            variantId,
+            variantName,
+            requestType,
+          }),
           title: content.secondActionTitle,
         },
       ],
@@ -32,6 +61,7 @@ self.onpush = async (event) => {
 
     if (requestType === 'impression') {
       const bc = new BroadcastChannel(`${tabId}`)
+
       bc.postMessage({
         campaignId,
         variantId,
