@@ -1,28 +1,39 @@
-let tabId = ''
+let key = ''
 
 self.onmessage = (event) => {
-  tabId = event.data
+  key = event.data
 }
 
 self.onnotificationclick = async (event) => {
   if (event.action && event.action.length > 0) {
-    const { url, campaignId, variantId, variantName, requestType } = JSON.parse(
-      event.action
-    )
+    const {
+      url,
+      campaignId,
+      variantId,
+      variantName,
+      requestType,
+      userAttributes,
+      externalUserId,
+    } = JSON.parse(event.action)
 
     await self.clients.openWindow(url)
 
     if (requestType === 'impression') {
-      const bc = new BroadcastChannel(`${tabId}`)
-
-      bc.postMessage({
-        campaignId,
-        variantId,
-        variantName,
-        eventType: 'confirmation',
+      await fetch('https://app.useresonance.com/api/events/emit', {
+        method: 'POST',
+        headers: {
+          Authorization: `${key}`,
+        },
+        body: {
+          campaignId,
+          variantId,
+          variantName,
+          externalUserId,
+          eventType: 'confirmation',
+          campaignType: 'push',
+          userAttributes,
+        },
       })
-
-      bc.close()
     }
   }
 }
@@ -30,8 +41,15 @@ self.onnotificationclick = async (event) => {
 self.onpush = async (event) => {
   try {
     const parsedData = event.data.json()
-    const { content, campaignId, variantId, variantName, requestType } =
-      parsedData
+    const {
+      content,
+      campaignId,
+      variantId,
+      variantName,
+      requestType,
+      userAttributes,
+      externalUserId,
+    } = parsedData
     await self.registration.showNotification(content.title, {
       body: content.body,
       icon: content.icon,
@@ -43,6 +61,8 @@ self.onpush = async (event) => {
             variantId,
             variantName,
             requestType,
+            externalUserId,
+            userAttributes,
           }),
           title: content.firstActionTitle,
         },
@@ -53,6 +73,8 @@ self.onpush = async (event) => {
             variantId,
             variantName,
             requestType,
+            userAttributes,
+            externalUserId,
           }),
           title: content.secondActionTitle,
         },
@@ -60,16 +82,21 @@ self.onpush = async (event) => {
     })
 
     if (requestType === 'impression') {
-      const bc = new BroadcastChannel(`${tabId}`)
-
-      bc.postMessage({
-        campaignId,
-        variantId,
-        variantName,
-        eventType: 'impression',
+      await fetch('https://app.useresonance.com/api/events/emit', {
+        method: 'POST',
+        headers: {
+          Authorization: `${key}`,
+        },
+        body: {
+          campaignId,
+          variantId,
+          variantName,
+          externalUserId,
+          eventType: 'impression',
+          campaignType: 'push',
+          userAttributes,
+        },
       })
-
-      bc.close()
     }
   } catch (e) {
     console.error(e)
