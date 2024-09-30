@@ -23,6 +23,7 @@ self.onnotificationclick = async (event) => {
         method: 'POST',
         headers: {
           Authorization: `${key}`,
+          "Content-Type": "application/json",
         },
         body: {
           campaignId,
@@ -86,6 +87,7 @@ self.onpush = async (event) => {
         method: 'POST',
         headers: {
           Authorization: `${key}`,
+          "Content-Type": "application/json",
         },
         body: {
           campaignId,
