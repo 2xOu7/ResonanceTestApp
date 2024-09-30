@@ -13,7 +13,8 @@ self.onnotificationclick = async (event) => {
 self.onpush = async (event) => {
   try {
     const parsedData = event.data.json()
-    const { content } = parsedData
+    const { content, campaignId, variantId, variantName, requestType } =
+      parsedData
     await self.registration.showNotification(content.title, {
       body: content.body,
       icon: content.icon,
@@ -30,12 +31,12 @@ self.onpush = async (event) => {
     })
 
     const bc = new BroadcastChannel(`push-${tabId}`)
-    if (parsedData.requestType === 'impression') {
+    if (requestType === 'impression') {
       bc.postMessage({
-        campaignId: parsedData.campaignId,
-        variantId: parsedData.variantId,
-        variantName: parsedData.variantName,
-        eventType: 'impression'
+        campaignId,
+        variantId,
+        variantName,
+        eventType: 'impression',
       })
 
       bc.close()
