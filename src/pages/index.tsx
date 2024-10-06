@@ -14,63 +14,66 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
 
   render() {
     return (
-      <div style={{ textAlign: 'center', marginTop: '5vh' }}>
-        <Button
-          variant={'outlined'}
-          style={{
-            backgroundColor: 'deeppink',
-            color: 'white',
-            marginRight: '1vw',
-          }}
-          onClick={() => {
-            notifyEvent('Pink Button Clicked')
-          }}
-        >
-          View Custom Report
-        </Button>
-        <Button
-          data-tooltip-id={'blue_button_tooltip'}
-          variant={'outlined'}
-          style={{
-            backgroundColor: 'blue',
-            color: 'white',
-            marginRight: '1vw',
-          }}
-          onClick={() => {
-            notifyEvent('Blue Button Clicked')
-          }}
-        >
-          Send Survey
-        </Button>
-        <Button
-          variant={'outlined'}
-          style={{
-            backgroundColor: 'green',
-            color: 'white',
-            marginRight: '1vw',
-          }}
-          onClick={() => {
-            notifyEvent('Green Button Clicked')
-          }}
-        >
-          Send Chat
-        </Button>
-        <Button
-          id={'red_button'}
-          data-tooltip-id={'red_button_tooltip'}
-          variant={'outlined'}
-          style={{ backgroundColor: 'red', color: 'white' }}
-          onClick={() => {
-            notifyEvent('Doctor Sends Reminder')
-          }}
-        >
-          Send Reminder
-        </Button>
-        <SimpleModal />
-        <br/>
-        <br/>
-        <SimpleBanner/>
-      </div>
+      <>
+        <title>Resonance Test App</title>
+        <div style={{ textAlign: 'center', marginTop: '5vh' }}>
+          <Button
+            variant={'outlined'}
+            style={{
+              backgroundColor: 'deeppink',
+              color: 'white',
+              marginRight: '1vw',
+            }}
+            onClick={() => {
+              notifyEvent('Pink Button Clicked')
+            }}
+          >
+            View Custom Report
+          </Button>
+          <Button
+            data-tooltip-id={'blue_button_tooltip'}
+            variant={'outlined'}
+            style={{
+              backgroundColor: 'blue',
+              color: 'white',
+              marginRight: '1vw',
+            }}
+            onClick={() => {
+              notifyEvent('Blue Button Clicked')
+            }}
+          >
+            Send Survey
+          </Button>
+          <Button
+            variant={'outlined'}
+            style={{
+              backgroundColor: 'green',
+              color: 'white',
+              marginRight: '1vw',
+            }}
+            onClick={() => {
+              notifyEvent('Green Button Clicked')
+            }}
+          >
+            Send Chat
+          </Button>
+          <Button
+            id={'red_button'}
+            data-tooltip-id={'red_button_tooltip'}
+            variant={'outlined'}
+            style={{ backgroundColor: 'red', color: 'white' }}
+            onClick={() => {
+              notifyEvent('Doctor Sends Reminder')
+            }}
+          >
+            Send Reminder
+          </Button>
+          <SimpleModal />
+          <br />
+          <br />
+          <SimpleBanner />
+        </div>
+      </>
     )
   }
 }
