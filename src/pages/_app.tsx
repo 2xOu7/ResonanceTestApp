@@ -4,7 +4,10 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import type { AppProps } from 'next/app'
 import 'react-tooltip/dist/react-tooltip.css'
-import { ResonanceCrossChannelClient, ResonanceMicrocopyProvider } from 'resonance-client'
+import {
+  ResonanceCrossChannelClient,
+  ResonanceMicrocopyProvider,
+} from 'resonance-client'
 import { useState } from 'react'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -14,23 +17,34 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <p>Role</p>
-      <input onChange={e => setRole(e.target.value)} value={role} />
+      <input onChange={(e) => setRole(e.target.value)} value={role} />
 
       <p>User ID</p>
-      <input onChange={e => setUserId(e.target.value)} value={userId} />
-      <ResonanceMicrocopyProvider apiUrl={'https://app.useresonance.com'} externalUserId={userId} apiKey={'c04b043b200f6cf9d191fa8826550d62e3e4abe37c6eb86b13aaefa413d0b234dd2742713142812aa0c25188ac587be2'} eventContext={{
-        "User First Name": "Jane",
-        "User Last Name": "Doe"
-      }} userAttributes={{ role }}>
+      <input onChange={(e) => setUserId(e.target.value)} value={userId} />
+      <ResonanceMicrocopyProvider
+        apiUrl={'https://app.useresonance.com'}
+        externalUserId={userId}
+        apiKey={
+          'c04b043b200f6cf9d191fa8826550d62e3e4abe37c6eb86b13aaefa413d0b234dd2742713142812aa0c25188ac587be2'
+        }
+        eventContext={{
+          'User First Name': 'Jane',
+          'User Last Name': 'Doe',
+        }}
+        userAttributes={{ role }}
+      >
         <ResonanceCrossChannelClient
           externalUserId={userId}
-          apiKey={'c04b043b200f6cf9d191fa8826550d62e3e4abe37c6eb86b13aaefa413d0b234dd2742713142812aa0c25188ac587be2'}
+          apiKey={
+            'c04b043b200f6cf9d191fa8826550d62e3e4abe37c6eb86b13aaefa413d0b234dd2742713142812aa0c25188ac587be2'
+          }
           eventContext={{
-            "User First Name": "Jane",
-            "User Last Name": "Doe"
+            'User First Name': 'Jane',
+            'User Last Name': 'Doe',
           }}
           userAttributes={{ role }}
-          apiUrl={'https://app.useresonance.com'}>
+          apiUrl={'https://app.useresonance.com'}
+        >
           <Component {...pageProps} />
         </ResonanceCrossChannelClient>
       </ResonanceMicrocopyProvider>

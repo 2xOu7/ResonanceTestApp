@@ -3,8 +3,8 @@ import { Box, Button, Modal, Typography } from '@mui/material'
 import {
   logOverlayConfirmation,
   logOverlayImpression,
-  tearDownCampaign,
   PromptCampaignContext,
+  tearDownCampaign,
 } from 'resonance-client'
 
 const style = {
