@@ -30,8 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
             "User Last Name": "Doe"
           }}
           userAttributes={{ role }}
-          serviceWorkerScriptURL={'./serviceWorker.js'}
-        >
+          apiUrl={'https://app.useresonance.com'}>
           <Component {...pageProps} />
         </ResonanceCrossChannelClient>
       </ResonanceMicrocopyProvider>
