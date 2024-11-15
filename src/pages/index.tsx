@@ -1,5 +1,5 @@
 import { Button } from '@mui/material'
-import { notifyEvent } from 'resonance-client'
+import {logConversion, notifyEvent} from 'resonance-client'
 import React, { Component } from 'react'
 import SimpleModal from '../components/NonHeadlessSimpleModal'
 import SimpleBanner from '../components/SimpleBanner'
@@ -61,13 +61,24 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
             id={'red_button'}
             data-tooltip-id={'red_button_tooltip'}
             variant={'outlined'}
-            style={{ backgroundColor: 'red', color: 'white' }}
+            style={{ backgroundColor: 'red', color: 'white',marginRight: '1vw'}}
             onClick={() => {
               notifyEvent('Doctor Sends Reminder')
             }}
           >
             Send Reminder
           </Button>
+            <Button
+                id={'purple_button'}
+                data-tooltip-id={'purple_button_tooltip'}
+                variant={'outlined'}
+                style={{ backgroundColor: 'purple', color: 'white' }}
+                onClick={() => {
+                    logConversion('Conversion Log')
+                }}
+            >
+               Log Conversion
+            </Button>
           <SimpleModal />
           <br />
           <br />
