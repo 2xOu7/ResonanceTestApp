@@ -2,7 +2,11 @@ import { Component } from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Alert from '@mui/material/Alert'
-import { MicrocopyContext } from 'resonance-client'
+import {
+  logMicrocopyConfirmation,
+  logMicrocopyImpression,
+  MicrocopyContext,
+} from 'resonance-client'
 import { Button } from '@mui/material'
 
 export default class SimpleBanner extends Component<{}, {}> {
@@ -19,6 +23,11 @@ export default class SimpleBanner extends Component<{}, {}> {
           }
 
           const copy = copiesToFilter[0]
+          logMicrocopyImpression(
+            copy.campaignId,
+            copy.variant.variantId,
+            copy.variant.variantName
+          )
 
           return (
             <Box style={{ marginLeft: '20vw', marginRight: '20vw' }}>
@@ -26,7 +35,17 @@ export default class SimpleBanner extends Component<{}, {}> {
                 <Typography variant={'body1'}>
                   {copy.variant.content['description']}
                 </Typography>
-                <Button>{copy.variant.content['button_text']}</Button>
+                <Button
+                  onClick={() => {
+                    logMicrocopyConfirmation(
+                      copy.campaignId,
+                      copy.variant.variantId,
+                      copy.variant.variantName
+                    )
+                  }}
+                >
+                  {copy.variant.content['button_text']}
+                </Button>
               </Alert>
             </Box>
           )
