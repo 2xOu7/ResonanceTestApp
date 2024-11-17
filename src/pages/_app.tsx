@@ -11,7 +11,7 @@ import {
 import { useState } from 'react'
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [role, setRole] = useState<string>('admin')
+  const [role, setRole] = useState<string>('owner')
   const [userId, setUserId] = useState<string>('125126')
 
   return (
