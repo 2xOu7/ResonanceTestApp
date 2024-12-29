@@ -3,6 +3,7 @@ import {logConversion, notifyEvent} from 'resonance-client'
 import React, { Component } from 'react'
 import SimpleModal from '../components/NonHeadlessSimpleModal'
 import SimpleBanner from '../components/SimpleBanner'
+import SimpleTooltip from '../components/SimpleTooltip'
 
 export default class Home extends Component<{}, { isOpen: boolean }> {
   constructor(props: {}) {
@@ -83,6 +84,7 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
           <br />
           <br />
           <SimpleBanner />
+          <SimpleTooltip/>
         </div>
       </>
     )
