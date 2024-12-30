@@ -1,36 +1,25 @@
-
 import { Button, IconButton, Tooltip } from '@mui/material'
 import {
-  logMicrocopyImpression,
-  logOverlayImpression,
-  MicrocopyContext,
   PromptCampaignContext,
 } from 'resonance-client'
 import React, { Component } from 'react'
 
-const TooltipTitle: React.FC<{ getContent: (content: string | null) => void }> = ({ getContent }) => {
-  return (
-    <PromptCampaignContext.Consumer>
-      {({ campaignToRender }) => {
-        if (
-          campaignToRender === null ||
-          campaignToRender.campaignFormat !== 'Tooltip'
-        ) {
-          return null
-        }
-
-        const { variantResult } = campaignToRender
-        const { content } = variantResult
-
-        const title = content['header'] || null
-        getContent(title) // Pass title back to the parent
-        return null
-      }}
-    </PromptCampaignContext.Consumer>
-  )
+interface PromptCampaignContextType {
+  campaignToRender: {
+    campaignFormat: string;
+    variantResult: {
+      content: {
+        header?: string;
+        [key: string]: any;
+      };
+    };
+  } | null;
 }
 
 export default class SimpleTooltip extends Component<{}, { isOpen: boolean; tooltipMessage: string | null }> {
+  static contextType = PromptCampaignContext;
+  declare context: PromptCampaignContextType;
+
   constructor(props: {}) {
     super(props)
     this.state = {
@@ -39,20 +28,34 @@ export default class SimpleTooltip extends Component<{}, { isOpen: boolean; tool
     }
   }
 
+  componentDidMount() {
+    const campaignToRender = this.context.campaignToRender;
+
+    if (
+      campaignToRender === null ||
+      campaignToRender.campaignFormat !== 'Tooltip'
+    ) {
+      return;
+    }
+
+    const { variantResult } = campaignToRender;
+    const { content } = variantResult;
+    const title = content['header'] || null;
+
+    if (title !== this.state.tooltipMessage) {
+      this.setState({ tooltipMessage: title });
+    }
+  }
+
   render() {
-    const { tooltipMessage } = this.state
+    const { tooltipMessage } = this.state;
 
     return (
-      <>
-        <TooltipTitle
-          getContent={(message: string | null) => this.setState({ tooltipMessage: message })}
-        />
-        <Tooltip title={tooltipMessage ?? 'Default Tooltip Message'}>
-          <IconButton>
-            <span>test</span>
-          </IconButton>
-        </Tooltip>
-      </>
+      <Tooltip title={tooltipMessage ?? 'Default Tooltip Message'}>
+        <IconButton>
+          <span>test</span>
+        </IconButton>
+      </Tooltip>
     )
   }
 }
