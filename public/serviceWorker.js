@@ -19,7 +19,7 @@ self.onnotificationclick = async (event) => {
     await self.clients.openWindow(url)
 
     if (requestType === 'impression') {
-      await fetch('https://app.useresonance.com/api/events/emit', {
+      await fetch('http://localhost:3000/api/events/emit', {
         method: 'POST',
         headers: {
           Authorization: `${key}`,
@@ -83,7 +83,7 @@ self.onpush = async (event) => {
     })
 
     if (requestType === 'impression') {
-      await fetch('https://app.useresonance.com/api/events/emit', {
+      await fetch('http://localhost:3000/api/events/emit', {
         method: 'POST',
         headers: {
           Authorization: `${key}`,
