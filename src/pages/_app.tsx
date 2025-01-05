@@ -13,7 +13,9 @@ import { useState } from 'react'
 
 export default function App({ Component, pageProps }: AppProps) {
   const [role, setRole] = useState<string>('owner')
-  const [userId, setUserId] = useState<string>('125126')
+  const [userId, setUserId] = useState<string>(
+    'db97b059-cbe8-454b-9ab1-7ee38499222e'
+  )
 
   return (
     <>
