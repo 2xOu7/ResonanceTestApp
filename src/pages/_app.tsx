@@ -23,18 +23,18 @@ export default function App({ Component, pageProps }: AppProps) {
       <p>User ID</p>
       <input onChange={(e) => setUserId(e.target.value)} value={userId} />
       <ResonanceConversionLogger
-        apiUrl={'https://app.useresonance.com'}
+        apiUrl={'https://app.staging.useresonance.com'}
         externalUserId={userId}
         apiKey={
-          'c04b043b200f6cf9d191fa8826550d62e3e4abe37c6eb86b13aaefa413d0b234dd2742713142812aa0c25188ac587be2'
+          '3b2a055a03b91b08fe1af786ece89a9046ed5f64cecda06f533dadd1907d8e20b4d4e4dc7632719213dd71bd80d5074d'
         }
         userAttributes={{ role }}
       />
       <ResonanceMicrocopyProvider
-        apiUrl={'https://app.useresonance.com'}
+        apiUrl={'https://app.staging.useresonance.com'}
         externalUserId={userId}
         apiKey={
-          'c04b043b200f6cf9d191fa8826550d62e3e4abe37c6eb86b13aaefa413d0b234dd2742713142812aa0c25188ac587be2'
+          '3b2a055a03b91b08fe1af786ece89a9046ed5f64cecda06f533dadd1907d8e20b4d4e4dc7632719213dd71bd80d5074d'
         }
         eventContext={{
           'User First Name': 'Jane',
@@ -45,14 +45,14 @@ export default function App({ Component, pageProps }: AppProps) {
         <ResonanceCrossChannelClient
           externalUserId={userId}
           apiKey={
-            'c04b043b200f6cf9d191fa8826550d62e3e4abe37c6eb86b13aaefa413d0b234dd2742713142812aa0c25188ac587be2'
+            '3b2a055a03b91b08fe1af786ece89a9046ed5f64cecda06f533dadd1907d8e20b4d4e4dc7632719213dd71bd80d5074d'
           }
           eventContext={{
             'User First Name': 'Jane',
             'User Last Name': 'Doe',
           }}
           userAttributes={{ role }}
-          apiUrl={'https://app.useresonance.com'}
+          apiUrl={'https://app.staging.useresonance.com'}
         >
           <Component {...pageProps} />
         </ResonanceCrossChannelClient>
