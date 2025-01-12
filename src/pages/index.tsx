@@ -1,8 +1,8 @@
 import { logConversion, notifyEvent } from 'resonance-client'
 import React, { Component } from 'react'
-import SimpleModal from '../components/NonHeadlessSimpleModal'
-import SimpleBanner from '../components/SimpleBanner'
-import SimpleTooltip from '@/components/SimpleTooltip'
+import SimpleModal from '../components/Modal'
+import Banner from '../components/Banner'
+import Tooltip from '@/components/Tooltip'
 import { Button } from 'evergreen-ui'
 
 export default class Home extends Component<{}, { isOpen: boolean }> {
@@ -82,9 +82,9 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
           <SimpleModal />
           <br />
           <br />
-          <SimpleBanner />
+          <Banner />
           <br />
-          <SimpleTooltip />
+          <Tooltip />
         </div>
       </>
     )
