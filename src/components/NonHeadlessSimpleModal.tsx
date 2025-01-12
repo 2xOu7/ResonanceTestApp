@@ -48,6 +48,7 @@ export default class SimpleModal extends Component<{}, {}> {
                     alt={'Clock'}
                   />
                 </div>
+                <br />
 
                 <Paragraph style={{ textAlign: 'center' }}>
                   {content['description']}
