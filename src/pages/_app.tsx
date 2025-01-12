@@ -10,6 +10,7 @@ import {
   ResonanceMicrocopyProvider,
 } from 'resonance-client'
 import { useState } from 'react'
+import { Paragraph, TextInput } from 'evergreen-ui'
 
 export default function App({ Component, pageProps }: AppProps) {
   const [role, setRole] = useState<string>('owner')
@@ -19,11 +20,13 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <p>Role</p>
-      <input onChange={(e) => setRole(e.target.value)} value={role} />
+      <Paragraph>Role</Paragraph>
+      <TextInput onChange={(e) => setRole(e.target.value)} value={role} />
 
-      <p>User ID</p>
-      <input onChange={(e) => setUserId(e.target.value)} value={userId} />
+      <br />
+      <br />
+      <Paragraph>User ID</Paragraph>
+      <TextInput onChange={(e) => setUserId(e.target.value)} value={userId} />
       <ResonanceConversionLogger
         apiUrl={'https://app.staging.useresonance.com'}
         externalUserId={userId}
