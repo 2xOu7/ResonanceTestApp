@@ -5,6 +5,7 @@ import {
   tearDownCampaign,
 } from 'resonance-client'
 import { Dialog, Pane, Paragraph } from 'evergreen-ui'
+import Image from 'next/image'
 
 export default class SimpleModal extends Component<{}, {}> {
   render() {
@@ -38,6 +39,16 @@ export default class SimpleModal extends Component<{}, {}> {
               }}
             >
               <Pane>
+                <div style={{ textAlign: 'center' }}>
+                  <Image
+                    style={{ textAlign: 'center' }}
+                    src={content['image_url']}
+                    width={100}
+                    height={100}
+                    alt={'Clock'}
+                  />
+                </div>
+
                 <Paragraph style={{ textAlign: 'center' }}>
                   {content['description']}
                 </Paragraph>
