@@ -5,6 +5,7 @@ import {
   tearDownCampaign,
 } from 'resonance-client'
 import {
+  Button,
   Card,
   Heading,
   Pane,
@@ -12,7 +13,6 @@ import {
   Position,
   SideSheet,
 } from 'evergreen-ui'
-import Image from 'next/image'
 
 export default class SimpleSidesheet extends Component<{}, {}> {
   render() {
@@ -40,15 +40,6 @@ export default class SimpleSidesheet extends Component<{}, {}> {
             >
               <br />
               <Pane padding={16} borderBottom={'muted'}>
-                <div style={{ textAlign: 'center' }}>
-                  <Image
-                    style={{ textAlign: 'center' }}
-                    src={content['image_url']}
-                    width={100}
-                    height={100}
-                    alt={'Clock'}
-                  />
-                </div>
                 <Heading size={600}>{content['header']}</Heading>
                 <Paragraph size={400} color={'muted'}>
                   {content['description']}
@@ -69,7 +60,21 @@ export default class SimpleSidesheet extends Component<{}, {}> {
                   alignItems={'center'}
                   justifyContent={'center'}
                 >
-                  <p>{content['description']}</p>
+                  {/*<div style={{ textAlign: 'center' }}>*/}
+                  {/*  <Image*/}
+                  {/*    style={{ textAlign: 'center' }}*/}
+                  {/*    src={content['image_url']}*/}
+                  {/*    width={100}*/}
+                  {/*    height={100}*/}
+                  {/*    alt={'Clock'}*/}
+                  {/*  />*/}
+                  {/*</div>*/}
+                  <Button marginRight={16} intent={'success'}>
+                    Success
+                  </Button>
+                  <Button marginRight={16} intent={'danger'}>
+                    Danger
+                  </Button>
                 </Card>
               </Pane>
             </SideSheet>
