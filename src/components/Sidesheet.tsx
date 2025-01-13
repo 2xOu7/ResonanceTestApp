@@ -39,7 +39,17 @@ export default class SimpleSidesheet extends Component<{}, {}> {
               }}
             >
               <br />
-              <Pane padding={16} borderBottom="muted">
+              <Pane
+                zIndex={1}
+                flexShrink={0}
+                elevation={0}
+                backgroundColor="white"
+              >
+                <Pane padding={16}>
+                  <Heading size={600}>{content['title']}</Heading>
+                </Pane>
+              </Pane>
+              <Pane padding={16} borderBottom={'muted'}>
                 <Heading size={600}>{content['title']}</Heading>
                 <Paragraph size={400} color={'muted'}>
                   {content['description']}
