@@ -55,7 +55,7 @@ export default class SimpleSidesheet extends Component<{}, {}> {
                 </div>
                 <br />
                 <div style={{ textAlign: 'center' }}>
-                  <Button>Upgrade Today</Button>
+                  <Button>{content['first_cta_text']}</Button>
                 </div>
               </Pane>
               <br />
