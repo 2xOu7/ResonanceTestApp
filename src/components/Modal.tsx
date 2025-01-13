@@ -26,7 +26,7 @@ export default class SimpleModal extends Component<{}, {}> {
           return (
             <Dialog
               isShown={true}
-              title={content['header']}
+              title={<p style={{ textAlign: 'center' }}>content['header']</p>}
               onCloseComplete={() => tearDownCampaign()}
               confirmLabel={content['first_cta_text']}
               cancelLabel={content['second_cta_text']}
