@@ -37,7 +37,6 @@ export default class Banner extends Component<{}, {}> {
                 <br />
                 <Heading>{copy.variant.content['title']}</Heading>
                 <br />
-                <br />
                 <div style={{ textAlign: 'center' }}>
                   <Image
                     style={{ textAlign: 'center' }}
@@ -47,7 +46,6 @@ export default class Banner extends Component<{}, {}> {
                     alt={'Clock'}
                   />
                 </div>
-                <br />
                 <br />
                 <Heading size={'200'}>
                   {copy.variant.content['description']}
