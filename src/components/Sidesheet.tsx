@@ -6,7 +6,6 @@ import {
 } from 'resonance-client'
 import {
   Button,
-  Card,
   Heading,
   Pane,
   Paragraph,
@@ -44,36 +43,18 @@ export default class SimpleSidesheet extends Component<{}, {}> {
                 <Paragraph size={400} color={'muted'}>
                   {content['description']}
                 </Paragraph>
-                <Button marginRight={16} intent={'success'}>
-                  Upgrade Today
-                </Button>
+                {/*<div style={{ textAlign: 'center' }}>*/}
+                {/*  <Image*/}
+                {/*    style={{ textAlign: 'center' }}*/}
+                {/*    src={content['image_url']}*/}
+                {/*    width={100}*/}
+                {/*    height={100}*/}
+                {/*    alt={'Clock'}*/}
+                {/*  />*/}
+                {/*</div>*/}
+                <Button marginRight={16}>Upgrade Today</Button>
               </Pane>
               <br />
-              <Pane
-                flex={'1'}
-                overflowY={'scroll'}
-                background={'tint1'}
-                padding={16}
-              >
-                <Card
-                  backgroundColor={'white'}
-                  elevation={0}
-                  height={240}
-                  display={'flex'}
-                  alignItems={'center'}
-                  justifyContent={'center'}
-                >
-                  {/*<div style={{ textAlign: 'center' }}>*/}
-                  {/*  <Image*/}
-                  {/*    style={{ textAlign: 'center' }}*/}
-                  {/*    src={content['image_url']}*/}
-                  {/*    width={100}*/}
-                  {/*    height={100}*/}
-                  {/*    alt={'Clock'}*/}
-                  {/*  />*/}
-                  {/*</div>*/}
-                </Card>
-              </Pane>
             </SideSheet>
           )
         }}
