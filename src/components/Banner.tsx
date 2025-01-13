@@ -34,7 +34,7 @@ export default class Banner extends Component<{}, {}> {
                 elevation={0}
               >
                 <br />
-                <Heading>{copy.variant.content['description']}</Heading>
+                <Heading>{copy.variant.content['title']}</Heading>
                 <br />
                 <br />
                 <Heading size={'200'}>
