@@ -5,6 +5,7 @@ import {
   MicrocopyContext,
 } from 'resonance-client'
 import { Button, Card, Heading, Pane } from 'evergreen-ui'
+import Image from 'next/image'
 
 export default class Banner extends Component<{}, {}> {
   render() {
@@ -35,6 +36,17 @@ export default class Banner extends Component<{}, {}> {
               >
                 <br />
                 <Heading>{copy.variant.content['title']}</Heading>
+                <br />
+                <br />
+                <div style={{ textAlign: 'center' }}>
+                  <Image
+                    style={{ textAlign: 'center' }}
+                    src={copy.variant.content['image_url']}
+                    width={100}
+                    height={100}
+                    alt={'Clock'}
+                  />
+                </div>
                 <br />
                 <br />
                 <Heading size={'200'}>
