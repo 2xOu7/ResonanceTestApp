@@ -47,7 +47,6 @@ export default class SimpleSidesheet extends Component<{}, {}> {
                 <br />
                 <div style={{ textAlign: 'center' }}>
                   <Image
-                    style={{ textAlign: 'center' }}
                     src={content['image_url']}
                     width={100}
                     height={100}
@@ -56,7 +55,7 @@ export default class SimpleSidesheet extends Component<{}, {}> {
                 </div>
                 <br />
                 <div style={{ textAlign: 'center' }}>
-                  <Button marginRight={16}>Upgrade Today</Button>
+                  <Button>Upgrade Today</Button>
                 </div>
               </Pane>
               <br />
