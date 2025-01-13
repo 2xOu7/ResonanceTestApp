@@ -21,6 +21,7 @@ export default class SimpleSidesheet extends Component<{}, {}> {
 
           return (
             <SideSheet isShown={true} position={Position.BOTTOM}>
+              <br />
               <Pane>
                 <div style={{ textAlign: 'center' }}>
                   <Image
@@ -47,7 +48,7 @@ export default class SimpleSidesheet extends Component<{}, {}> {
                   alignItems={'center'}
                   justifyContent={'center'}
                 >
-                  <Heading>{content['title']}</Heading>
+                  <Heading>{content['header']}</Heading>
                 </Card>
               </Pane>
             </SideSheet>
