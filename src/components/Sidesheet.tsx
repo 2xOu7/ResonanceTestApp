@@ -44,6 +44,9 @@ export default class SimpleSidesheet extends Component<{}, {}> {
                 <Paragraph size={400} color={'muted'}>
                   {content['description']}
                 </Paragraph>
+                <Button marginRight={16} intent={'success'}>
+                  Upgrade Today
+                </Button>
               </Pane>
               <br />
               <Pane
@@ -69,12 +72,6 @@ export default class SimpleSidesheet extends Component<{}, {}> {
                   {/*    alt={'Clock'}*/}
                   {/*  />*/}
                   {/*</div>*/}
-                  <Button marginRight={16} intent={'success'}>
-                    Success
-                  </Button>
-                  <Button marginRight={16} intent={'danger'}>
-                    Danger
-                  </Button>
                 </Card>
               </Pane>
             </SideSheet>
