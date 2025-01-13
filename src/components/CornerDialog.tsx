@@ -14,7 +14,7 @@ export default class SimpleCornerDialog extends Component<{}, {}> {
         {({ campaignToRender }) => {
           if (
             campaignToRender === null ||
-            campaignToRender.campaignFormat !== 'Modal'
+            campaignToRender.campaignFormat !== 'Corner Dialog'
           ) {
             return null
           }
