@@ -1,5 +1,9 @@
 import { Component } from 'react'
-import { logOverlayImpression, PromptCampaignContext } from 'resonance-client'
+import {
+  logOverlayImpression,
+  PromptCampaignContext,
+  tearDownCampaign,
+} from 'resonance-client'
 import {
   Card,
   Heading,
@@ -27,7 +31,13 @@ export default class SimpleSidesheet extends Component<{}, {}> {
           const { content } = variantResult
 
           return (
-            <SideSheet isShown={true} position={Position.BOTTOM}>
+            <SideSheet
+              isShown={true}
+              position={Position.BOTTOM}
+              onCloseComplete={() => {
+                tearDownCampaign()
+              }}
+            >
               <br />
               <Pane padding={16} borderBottom="muted">
                 <Heading size={600}>{content['title']}</Heading>
