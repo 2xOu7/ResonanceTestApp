@@ -4,8 +4,7 @@ import {
   logMicrocopyImpression,
   MicrocopyContext,
 } from 'resonance-client'
-import { Button } from '@mui/material'
-import { Card, Heading, Pane } from 'evergreen-ui'
+import { Button, Card, Heading, Pane } from 'evergreen-ui'
 
 export default class Banner extends Component<{}, {}> {
   render() {
