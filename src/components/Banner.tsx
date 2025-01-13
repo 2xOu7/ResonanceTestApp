@@ -1,13 +1,11 @@
-import { Component } from 'react'
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
-import Alert from '@mui/material/Alert'
+import React, { Component } from 'react'
 import {
   logMicrocopyConfirmation,
   logMicrocopyImpression,
   MicrocopyContext,
 } from 'resonance-client'
 import { Button } from '@mui/material'
+import { Card, Heading, Pane } from 'evergreen-ui'
 
 export default class Banner extends Component<{}, {}> {
   render() {
@@ -30,11 +28,21 @@ export default class Banner extends Component<{}, {}> {
           )
 
           return (
-            <Box style={{ marginLeft: '20vw', marginRight: '20vw' }}>
-              <Alert severity={'info'}>
-                <Typography variant={'body1'}>
+            <Pane flex={'1'} overflowY={'scroll'} padding={16}>
+              <Card
+                background={'tint1'}
+                backgroundColor={'white'}
+                elevation={0}
+              >
+                <br />
+                <Heading>{copy.variant.content['description']}</Heading>
+                <br />
+                <br />
+                <Heading size={'200'}>
                   {copy.variant.content['description']}
-                </Typography>
+                </Heading>
+                <br />
+                <br />
                 <Button
                   onClick={() => {
                     logMicrocopyConfirmation(
@@ -46,8 +54,10 @@ export default class Banner extends Component<{}, {}> {
                 >
                   {copy.variant.content['button_text']}
                 </Button>
-              </Alert>
-            </Box>
+                <br />
+                <br />
+              </Card>
+            </Pane>
           )
         }}
       </MicrocopyContext.Consumer>
