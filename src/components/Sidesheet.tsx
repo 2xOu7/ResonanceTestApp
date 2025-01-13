@@ -1,6 +1,13 @@
 import { Component } from 'react'
 import { logOverlayImpression, PromptCampaignContext } from 'resonance-client'
-import { Card, Heading, Pane, Position, SideSheet } from 'evergreen-ui'
+import {
+  Card,
+  Heading,
+  Pane,
+  Paragraph,
+  Position,
+  SideSheet,
+} from 'evergreen-ui'
 import Image from 'next/image'
 
 export default class SimpleSidesheet extends Component<{}, {}> {
@@ -21,6 +28,13 @@ export default class SimpleSidesheet extends Component<{}, {}> {
 
           return (
             <SideSheet isShown={true} position={Position.BOTTOM}>
+              <br />
+              <Pane padding={16} borderBottom="muted">
+                <Heading size={600}>{content['title']}</Heading>
+                <Paragraph size={400} color={'muted'}>
+                  {content['description']}
+                </Paragraph>
+              </Pane>
               <br />
               <Pane>
                 <div style={{ textAlign: 'center' }}>
@@ -48,7 +62,6 @@ export default class SimpleSidesheet extends Component<{}, {}> {
                   alignItems={'center'}
                   justifyContent={'center'}
                 >
-                  <Heading>{content['header']}</Heading>
                   <p>{content['description']}</p>
                 </Card>
               </Pane>
