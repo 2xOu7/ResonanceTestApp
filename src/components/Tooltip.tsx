@@ -24,11 +24,12 @@ export default class SimpleTooltip extends Component<{}, {}> {
 
           return (
             <Tooltip
-              style={{ backgroundColor: 'white', color: 'black' }}
               id={content['selector']}
               content={content['header']}
               isOpen={true}
-            />
+            >
+              <p>Hello</p>
+            </Tooltip>
           )
         }}
       </PromptCampaignContext.Consumer>
