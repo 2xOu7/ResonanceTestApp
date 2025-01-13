@@ -7,7 +7,7 @@ import {
 import { CornerDialog, Pane, Paragraph } from 'evergreen-ui'
 import Image from 'next/image'
 
-export default class SimpleModal extends Component<{}, {}> {
+export default class SimpleCornerDialog extends Component<{}, {}> {
   render() {
     return (
       <PromptCampaignContext.Consumer>

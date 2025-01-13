@@ -4,6 +4,7 @@ import SimpleModal from '../components/Modal'
 import Banner from '../components/Banner'
 import Tooltip from '@/components/Tooltip'
 import { Button } from 'evergreen-ui'
+import SimpleCornerDialog from '@/components/CornerDialog'
 
 export default class Home extends Component<{}, { isOpen: boolean }> {
   constructor(props: {}) {
@@ -85,6 +86,8 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
           <Banner />
           <br />
           <Tooltip />
+          <br />
+          <SimpleCornerDialog />
         </div>
       </>
     )
