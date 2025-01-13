@@ -49,6 +49,7 @@ export default class SimpleSidesheet extends Component<{}, {}> {
                   justifyContent={'center'}
                 >
                   <Heading>{content['header']}</Heading>
+                  <p>{content['description']}</p>
                 </Card>
               </Pane>
             </SideSheet>
