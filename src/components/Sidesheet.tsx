@@ -55,7 +55,9 @@ export default class SimpleSidesheet extends Component<{}, {}> {
                   />
                 </div>
                 <br />
-                <Button marginRight={16}>Upgrade Today</Button>
+                <div style={{ textAlign: 'center' }}>
+                  <Button marginRight={16}>Upgrade Today</Button>
+                </div>
               </Pane>
               <br />
             </SideSheet>
