@@ -2,7 +2,7 @@ import { Component } from 'react'
 import { logOverlayImpression, PromptCampaignContext } from 'resonance-client'
 import { Tooltip } from 'react-tooltip'
 
-export default class Tooltip extends Component<{}, {}> {
+export default class SimpleTooltip extends Component<{}, {}> {
   constructor(props: {}) {
     super(props)
   }
