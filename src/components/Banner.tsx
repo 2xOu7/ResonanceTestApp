@@ -51,7 +51,6 @@ export default class Banner extends Component<{}, {}> {
                   {copy.variant.content['description']}
                 </Heading>
                 <br />
-                <br />
                 <Button
                   onClick={() => {
                     logMicrocopyConfirmation(
