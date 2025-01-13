@@ -5,6 +5,7 @@ import Banner from '../components/Banner'
 import Tooltip from '@/components/Tooltip'
 import { Button } from 'evergreen-ui'
 import SimpleCornerDialog from '@/components/CornerDialog'
+import SimpleSidesheet from '@/components/Sidesheet'
 
 export default class Home extends Component<{}, { isOpen: boolean }> {
   constructor(props: {}) {
@@ -80,14 +81,13 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
           >
             Log Conversion
           </Button>
-          <SimpleModal />
           <br />
           <br />
           <Banner />
-          <br />
           <Tooltip />
-          <br />
           <SimpleCornerDialog />
+          <SimpleSidesheet />
+          <SimpleModal />
         </div>
       </>
     )
