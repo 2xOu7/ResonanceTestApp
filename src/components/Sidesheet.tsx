@@ -12,6 +12,7 @@ import {
   Position,
   SideSheet,
 } from 'evergreen-ui'
+import Image from 'next/image'
 
 export default class SimpleSidesheet extends Component<{}, {}> {
   render() {
@@ -43,15 +44,17 @@ export default class SimpleSidesheet extends Component<{}, {}> {
                 <Paragraph size={400} color={'muted'}>
                   {content['description']}
                 </Paragraph>
-                {/*<div style={{ textAlign: 'center' }}>*/}
-                {/*  <Image*/}
-                {/*    style={{ textAlign: 'center' }}*/}
-                {/*    src={content['image_url']}*/}
-                {/*    width={100}*/}
-                {/*    height={100}*/}
-                {/*    alt={'Clock'}*/}
-                {/*  />*/}
-                {/*</div>*/}
+                <br />
+                <div style={{ textAlign: 'center' }}>
+                  <Image
+                    style={{ textAlign: 'center' }}
+                    src={content['image_url']}
+                    width={100}
+                    height={100}
+                    alt={'Clock'}
+                  />
+                </div>
+                <br />
                 <Button marginRight={16}>Upgrade Today</Button>
               </Pane>
               <br />
