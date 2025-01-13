@@ -39,24 +39,7 @@ export default class SimpleSidesheet extends Component<{}, {}> {
               }}
             >
               <br />
-              <Pane
-                zIndex={1}
-                flexShrink={0}
-                elevation={0}
-                backgroundColor="white"
-              >
-                <Pane padding={16}>
-                  <Heading size={600}>{content['header']}</Heading>
-                </Pane>
-              </Pane>
               <Pane padding={16} borderBottom={'muted'}>
-                <Heading size={600}>{content['header']}</Heading>
-                <Paragraph size={400} color={'muted'}>
-                  {content['description']}
-                </Paragraph>
-              </Pane>
-              <br />
-              <Pane>
                 <div style={{ textAlign: 'center' }}>
                   <Image
                     style={{ textAlign: 'center' }}
@@ -66,8 +49,12 @@ export default class SimpleSidesheet extends Component<{}, {}> {
                     alt={'Clock'}
                   />
                 </div>
-                <br />
+                <Heading size={600}>{content['header']}</Heading>
+                <Paragraph size={400} color={'muted'}>
+                  {content['description']}
+                </Paragraph>
               </Pane>
+              <br />
               <Pane
                 flex={'1'}
                 overflowY={'scroll'}
