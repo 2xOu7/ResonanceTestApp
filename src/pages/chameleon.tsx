@@ -19,7 +19,13 @@ export default class Chameleon extends Component<{}, {}> {
     return (
       <div style={{ marginTop: '5vh', textAlign: 'center' }}>
         <div id={'placeholder'} style={{ display: 'none' }} />
-        <Button>Chameleon!</Button>
+        <Button
+          onClick={async () => {
+            alert('Hello')
+          }}
+        >
+          Chameleon!
+        </Button>
       </div>
     )
   }
