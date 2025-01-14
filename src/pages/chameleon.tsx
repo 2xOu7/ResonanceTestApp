@@ -1,19 +1,7 @@
 import { Component } from 'react'
 import { Button } from 'evergreen-ui'
 
-export default class Chameleon extends Component<
-  {},
-  {
-    tourIdToShow: string
-  }
-> {
-  constructor(props: {}) {
-    super(props)
-    this.state = {
-      tourIdToShow: '',
-    }
-  }
-
+export default class Chameleon extends Component<{}, {}> {
   componentDidMount() {
     const chameleon = require('@chamaeleonidae/chmln')
     chameleon.init(
@@ -30,9 +18,7 @@ export default class Chameleon extends Component<
   render() {
     return (
       <div style={{ marginTop: '5vh', textAlign: 'center' }}>
-        {this.state.tourIdToShow.length >= -0 ? (
-          <div id={this.state.tourIdToShow} />
-        ) : null}
+        <div id={'placeholder'} />
         <Button>Chameleon!</Button>
       </div>
     )
