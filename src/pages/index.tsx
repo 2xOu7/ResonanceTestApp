@@ -7,12 +7,21 @@ import { Button } from 'evergreen-ui'
 import SimpleCornerDialog from '@/components/CornerDialog'
 import SimpleSidesheet from '@/components/Sidesheet'
 
-export default class Home extends Component<{}, { isOpen: boolean }> {
+export default class Home extends Component<{}, { isOpen: boolean, chameleonClient: any }> {
   constructor(props: {}) {
     super(props)
     this.state = {
       isOpen: false,
+      chameleonClient: undefined
     }
+  }
+
+  componentDidMount() {
+    const chmln = require('@chamaeleonidae/chmln');
+    chmln.init('SpovY7xd2fqt2P5y8EXp9B4YETcGR2iYVGr3v11i78stEe-1TxxPk-FFoTg0sbJ9YYycdj', {
+      fastUrl: 'https://fast.chameleon.io/'
+    });
+    this.setState({...this.state, chameleonClient: chmln})
   }
 
   render() {
@@ -67,6 +76,7 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
             }}
             onClick={() => {
               notifyEvent('Doctor Sends Reminder')
+              this.state.chameleonClient.show('6785d7f651e673002d052e39')
             }}
           >
             Red Button
