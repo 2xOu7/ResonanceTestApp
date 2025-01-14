@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Heading } from 'evergreen-ui'
+import { Button } from 'evergreen-ui'
 
 export default class Chameleon extends Component<{}, {}> {
   componentDidMount() {
@@ -8,6 +8,7 @@ export default class Chameleon extends Component<{}, {}> {
       'ShKgqpN5FMwCGZIfkx0SPgxWna8Zsn6pVXdPuLrTEADVlN-1TxxhH-FFoTg0sbJ9YYycdj',
       { fastUrl: 'https://fast.chameleon.io/' }
     )
+
     chameleon.identify('123', {
       email: 'katherine@yourresonate.com',
       name: 'Katya Pioro',
@@ -17,7 +18,7 @@ export default class Chameleon extends Component<{}, {}> {
   render() {
     return (
       <div style={{ marginTop: '5vh', textAlign: 'center' }}>
-        <Heading>Chameleon!</Heading>
+        <Button onClick={() => {}}>Chameleon!</Button>
       </div>
     )
   }
