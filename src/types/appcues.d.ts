@@ -3,4 +3,5 @@ interface Window {
   AppcuesSettings?: {
     enableURLDetection: boolean
   }
+  performAction: () => string
 }
