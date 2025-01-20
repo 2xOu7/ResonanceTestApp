@@ -40,22 +40,6 @@ export default class Chameleon extends Component<
       email: 'katherine@yourresonate.com',
       name: 'Katya Pioro',
     })
-
-    chameleon.on('after:account', () => {
-      chameleon.lib.personalize.Mustache.addHelper(
-        'hello',
-        (args: any, opts: any) => {
-          // [1] args=['Alice'] opts={}
-          // [2] args=['Alice'] opts={ prefix: '👋' }
-          // [3] args=['foo'] opts={ prefix: '👋' }
-          // [3] args=['Product manager'] opts={ postfix: '!!' }
-
-          const name = args[0]
-
-          return `${opts.prefix || 'Hey'} ${name}${opts.postfix || ''}`
-        }
-      )
-    })
   }
 
   render() {
