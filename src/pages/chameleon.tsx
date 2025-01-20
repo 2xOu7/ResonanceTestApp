@@ -25,7 +25,9 @@ export default class Chameleon extends Component<
         }
       )
 
-      return JSON.stringify(await response.json())
+      const data = await response.json()
+      console.log(data)
+      return JSON.stringify(data)
     }
 
     const chameleon = require('@chamaeleonidae/chmln')
