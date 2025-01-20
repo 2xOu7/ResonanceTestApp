@@ -17,8 +17,15 @@ export default class Chameleon extends Component<
   }
 
   componentDidMount() {
-    window.performAction = () => {
-      return 'Perform Action Output'
+    window.performAction = async () => {
+      const response = await fetch(
+        'https://dummyjson.com/c/3029-d29f-4014-9fb4',
+        {
+          method: 'GET',
+        }
+      )
+
+      return JSON.stringify(await response.json())
     }
 
     const chameleon = require('@chamaeleonidae/chmln')

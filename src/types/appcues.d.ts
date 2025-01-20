@@ -3,5 +3,5 @@ interface Window {
   AppcuesSettings?: {
     enableURLDetection: boolean
   }
-  performAction: () => string
+  performAction: () => Promise<string>
 }
