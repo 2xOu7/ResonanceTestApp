@@ -18,9 +18,9 @@ export default class Chameleon extends Component<
 
   componentDidMount() {
     window.performAction = () => {
-      return 'Perform Action'
+      return 'Perform Action Output'
     }
-    
+
     const chameleon = require('@chamaeleonidae/chmln')
     chameleon.init(
       'ShKgqpN5FMwCGZIfkx0SPgxWna8Zsn6pVXdPuLrTEADVlN-1TxxhH-FFoTg0sbJ9YYycdj',
