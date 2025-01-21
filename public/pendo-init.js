@@ -55,7 +55,7 @@
 
   pendo.identify({
     visitor: {
-      id: 'visitor',
+      id: 'jonathan',
       email: 'email',
       full_name: 'full_name',
       role: 'role',
