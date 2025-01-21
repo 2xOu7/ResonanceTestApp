@@ -29,7 +29,10 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
           full_name: 'full_name',
           role: 'role',
           creationDate: 'creationDate',
-          arbitrary: 'arbitrary',
+          arbitrary: {
+            'x': 1,
+            'y': 2
+          },
         },
         account: {
           id: 'id',
