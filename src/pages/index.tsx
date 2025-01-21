@@ -20,8 +20,9 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
     script.src = "/pendo-init.js"
     script.async = true
     document.body.appendChild(script)
+
     // @ts-ignore
-    pendo.identify({
+    window.pendo.identify({
       visitor: {
         id: 'jonathan',
         email: 'email',
