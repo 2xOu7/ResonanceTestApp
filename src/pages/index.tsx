@@ -15,6 +15,13 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
     }
   }
 
+  componentDidMount() {
+    const script = document.createElement('script')
+    script.src = "/pendo-init.js"
+    script.async = true
+    document.body.appendChild(script)
+  }
+
   render() {
     return (
       <>
