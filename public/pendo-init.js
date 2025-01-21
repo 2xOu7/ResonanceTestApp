@@ -53,21 +53,21 @@
     }
   });
 
-  pendo.identify({
-    visitor: {
-      id: 'jonathan',
-      email: 'email',
-      full_name: 'full_name',
-      role: 'role',
-      creationDate: 'creationDate'
-    },
-    account: {
-      id: 'id',
-      name: 'name',
-      is_paying: 'is_paying',
-      monthly_value: 'monthly_val',
-      planLevel: 'sub_cost',
-    }
-  });
+  // pendo.identify({
+  //   visitor: {
+  //     id: 'jonathan',
+  //     email: 'email',
+  //     full_name: 'full_name',
+  //     role: 'role',
+  //     creationDate: 'creationDate'
+  //   },
+  //   account: {
+  //     id: 'id',
+  //     name: 'name',
+  //     is_paying: 'is_paying',
+  //     monthly_value: 'monthly_val',
+  //     planLevel: 'sub_cost',
+  //   }
+  // });
 
 })('0f9a117a-2cab-4189-6c09-f94ee7a438ff');
