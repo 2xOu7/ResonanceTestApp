@@ -18,26 +18,30 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
   componentDidMount() {
     const script = document.createElement('script')
     script.src = "/pendo-init.js"
-    script.async = true
     document.body.appendChild(script)
 
-    // @ts-ignore
-    window.pendo.identify({
-      visitor: {
-        id: 'jonathan',
-        email: 'email',
-        full_name: 'full_name',
-        role: 'role',
-        creationDate: 'creationDate'
-      },
-      account: {
-        id: 'id',
-        name: 'name',
-        is_paying: 'is_paying',
-        monthly_value: 'monthly_val',
-        planLevel: 'sub_cost',
-      }
-    });
+    script.addEventListener('load', ()=>{
+      // @ts-ignore
+      pendo.identify({
+        visitor: {
+          id: 'jonathan',
+          email: 'email',
+          full_name: 'full_name',
+          role: 'role',
+          creationDate: 'creationDate',
+          arbitrary: 'arbitrary',
+        },
+        account: {
+          id: 'id',
+          name: 'name',
+          is_paying: 'is_paying',
+          monthly_value: 'monthly_val',
+          planLevel: 'sub_cost',
+        }
+      })
+    })
+
+    ;
   }
 
   render() {
