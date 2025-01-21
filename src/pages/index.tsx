@@ -41,7 +41,7 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
           role: 'role',
           creationDate: 'creationDate',
           resonance: data,
-          testFn: () => {console.log("fn")}
+          logFn: () => console.log("log fn")
         },
         account: {
           id: 'id',
