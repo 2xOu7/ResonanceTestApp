@@ -28,7 +28,7 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
         },
         {
           headers: {
-            Authorization: `Bearer 'a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`,
+            Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`,
           },
         },
       )
