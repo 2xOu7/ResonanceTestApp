@@ -22,15 +22,16 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
     document.body.appendChild(script)
 
     script.addEventListener('load', async () => {
-
-      const { data } = await axios.post('https://app.staging.useresonance.com/api/pendo/getbestmessages', {
+      const { data } = await axios.post(
+        'https://app.staging.useresonance.com/api/pendo/getbestmessages',
+        {
           externalUserId: 'jonathan',
         },
         {
           headers: {
             Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`,
           },
-        },
+        }
       )
       // @ts-ignore
       pendo.identify({
@@ -41,7 +42,6 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
           role: 'role',
           creationDate: 'creationDate',
           resonance: data,
-          logFn: () => { console.log("log fn") }
         },
         account: {
           id: 'id',
@@ -52,8 +52,6 @@ export default class Home extends Component<{}, { isOpen: boolean }> {
         },
       })
     })
-
-
   }
 
   render() {
