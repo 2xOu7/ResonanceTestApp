@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { internalEventEmitter } from './internalEventEmitter'
-import { AppBar, Box, Drawer, IconButton, List, Toolbar } from '@mui/material'
+import { AppBar, Box, Divider, Drawer, IconButton, List, Toolbar } from '@mui/material'
 import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
@@ -9,7 +9,10 @@ import { styled } from '@mui/material/styles'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import MenuIcon from '@mui/icons-material/Menu'
+import { GiChameleonGlyph } from "react-icons/gi";
 import { Button } from 'evergreen-ui'
+import Link from 'next/link'
+import { GridView, Home } from '@mui/icons-material'
 
 
 const drawerWidth = 240
@@ -30,7 +33,7 @@ export class Sidebar extends Component<{}, { isSidebarOpen: boolean, open: boole
     this.state = {
       isSidebarOpen: false,
       open: false,
-      boxMarginLeftPx: 0
+      boxMarginLeftPx: 0,
     }
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this)
     this.handleDrawerClose = this.handleDrawerClose.bind(this)
@@ -56,6 +59,11 @@ export class Sidebar extends Component<{}, { isSidebarOpen: boolean, open: boole
   }
 
   render() {
+    const items = [
+      { text: 'Resonance', path: '/' , icon: <Home/> },
+      { text: 'Chameleon', path: '/chameleon', icon:  <GiChameleonGlyph/> },
+      { text: 'AppCues', path: '/appcues', icon: <GridView/>},
+    ]
     return (
       <div className={'card flex justify-content-center'}>
         <Button
@@ -85,21 +93,25 @@ export class Sidebar extends Component<{}, { isSidebarOpen: boolean, open: boole
             <DrawerHeader>
               {this.state.isSidebarOpen ?
                 (<IconButton onClick={this.handleDrawerClose}>
-                  {this.state.isSidebarOpen ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                  {this.state.isSidebarOpen ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                 </IconButton>) :
                 (<IconButton onClick={this.handleDrawerOpen}>
-                  {this.state.isSidebarOpen ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                  {this.state.isSidebarOpen ? <ChevronLeftIcon/> : <ChevronRightIcon />}
                 </IconButton>)
               }
             </DrawerHeader>
-            <List>
-              {['Chameleon', 'AppCues'].map((text, index) => (
-                <ListItem key={text} disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
+            <Divider/>
+            <List >
+              {items.map((item, index) => (
+                <ListItem key={item.text} disablePadding>
+                  <Link href={item.path} style={{color: 'black', textDecoration:'none'}}>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        {item.icon}
+                      </ListItemIcon>
+                      <ListItemText primary={item.text}/>
+                    </ListItemButton>
+                  </Link>
                 </ListItem>
               ))}
             </List>

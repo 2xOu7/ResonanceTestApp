@@ -3,11 +3,10 @@ import React, { Component } from 'react'
 import SimpleModal from '../components/Modal'
 import Banner from '../components/Banner'
 import Tooltip from '@/components/Tooltip'
-import { Button, Pane, Paragraph, TextInput } from 'evergreen-ui'
+import { Button, Heading, Pane, Paragraph, TextInput } from 'evergreen-ui'
 import SimpleCornerDialog from '@/components/CornerDialog'
 import SimpleSidesheet from '@/components/Sidesheet'
 import axios from 'axios'
-import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar'
 import { Box } from '@mui/material'
 
 interface HomeProps {
@@ -75,11 +74,13 @@ export default class Home extends Component<HomeProps, HomeState> {
     return (
       <>
         <title>Resonance Test App</title>
-        <div style={{ textAlign: 'center', marginTop: '5vh' }}>
+        <div style={{ textAlign: 'center'}}>
+          <Pane display="flex" padding={16} background="tint2" borderRadius={3} style={{marginTop:-50}} >
+            <Heading size={1000} style={{marginLeft: 250}}>Home</Heading>
+          </Pane>
           <Box display="box">
             <Paragraph>Role</Paragraph>
             <TextInput onChange={(e) => this.props.setRole(e.target.value)} value={this.props.role} />
-
             <br />
             <br />
             <Paragraph>User ID</Paragraph>

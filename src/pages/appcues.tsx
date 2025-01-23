@@ -1,5 +1,5 @@
-import { Component } from 'react'
-import { Heading } from 'evergreen-ui'
+import React, { Component } from 'react'
+import { Heading, Pane } from 'evergreen-ui'
 
 export default class Appcues extends Component<{}, {}> {
   componentDidMount() {
@@ -17,9 +17,13 @@ export default class Appcues extends Component<{}, {}> {
 
   render() {
     return (
+      <>
+      <Pane display="flex" padding={16} background="tint2" borderRadius={3} style={{marginTop:-50}} >
+        <Heading size={1000} style={{marginLeft: 250}}>AppCues</Heading>
+      </Pane>
       <div style={{ marginTop: '5vh', textAlign: 'center' }}>
-        <Heading>Appcues!</Heading>
       </div>
+      </>
     )
   }
 }
