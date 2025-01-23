@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import SimpleModal from '../components/Modal'
 import Banner from '../components/Banner'
 import Tooltip from '@/components/Tooltip'
-import { Button, Heading, Pane, Paragraph, TextInput } from 'evergreen-ui'
+import { Button, Card, Heading, Pane, Paragraph, TextInput } from 'evergreen-ui'
 import SimpleCornerDialog from '@/components/CornerDialog'
 import SimpleSidesheet from '@/components/Sidesheet'
 import axios from 'axios'
@@ -74,87 +74,85 @@ export default class Home extends Component<HomeProps, HomeState> {
     return (
       <>
         <title>Resonance Test App</title>
-        <div style={{ textAlign: 'center'}}>
-          <Pane display="flex" padding={16} background="tint2" borderRadius={3} style={{marginTop:-50}} >
-            <Heading size={1000} style={{marginLeft: 250}}>Home</Heading>
+        <div style={{ textAlign: 'center' }}>
+          <Pane display="flex" padding={16} background="tint2" borderRadius={3} style={{ marginTop: -50 }}>
+            <Heading size={1000} style={{ marginLeft: 250 }}>Home</Heading>
           </Pane>
-          <Box display="box">
-            <Paragraph>Role</Paragraph>
-            <TextInput onChange={(e) => this.props.setRole(e.target.value)} value={this.props.role} />
-            <br />
-            <br />
-            <Paragraph>User ID</Paragraph>
-            <TextInput onChange={(e) => this.props.setUserId(e.target.value)} value={this.props.userId} />
-          </Box>
-          <Box display="box" style={{marginTop: "5vh"}}>
-            <Button
-              style={{
-                backgroundColor: '#EE9191',
-                color: 'white',
-                marginRight: '1vw',
-              }}
-              onClick={() => {
-                notifyEvent('Pink Button Clicked')
-              }}
-            >
-              Pink Button
-            </Button>
-            <Button
-              data-tooltip-id={'blue_button_tooltip'}
-              style={{
-                backgroundColor: '#5C85FF',
-                color: 'white',
-                marginRight: '1vw',
-              }}
-              onClick={() => {
-                notifyEvent('Blue Button Clicked')
-              }}
-            >
-              Blue Button
-            </Button>
-            <div>
-              <Pane border="default" display="inline-block" padding={16}>
-                <Button
-                  style={{
-                    backgroundColor: '#52BD95',
-                    color: 'white',
-                    marginRight: '1vw',
-                  }}
-                  onClick={() => {
-                    notifyEvent('Green Button Clicked')
-                  }}
-                >
-                  Green Button
-                </Button>
-              </Pane>
-              <Pane border="default" display="inline-block" padding={16}>
-                <Button
-                  id={'red_button'}
-                  data-tooltip-id={'red_button_tooltip'}
-                  style={{
-                    backgroundColor: '#D14343',
-                    color: 'white',
-                    marginRight: '1vw',
-                  }}
-                  onClick={() => {
-                    notifyEvent('Doctor Sends Reminder')
-                  }}
-                >
-                  Red Button
-                </Button>
-              </Pane>
+          <Card border="default" style={{ borderRadius: 4 }} elevation={0}>
+            <div style={{ margin: 40 }}>
+              <Paragraph>Role</Paragraph>
+              <TextInput onChange={(e) => this.props.setRole(e.target.value)} value={this.props.role} />
+              <br />
+              <br />
+              <Paragraph>User ID</Paragraph>
+              <TextInput onChange={(e) => this.props.setUserId(e.target.value)} value={this.props.userId} />
             </div>
-            <Button
-              id={'purple_button'}
-              data-tooltip-id={'purple_button_tooltip'}
-              style={{ backgroundColor: 'purple', color: 'white' }}
-              onClick={() => {
-                logConversion('Conversion Log')
-              }}
-            >
-              Log Conversion
-            </Button>
-          </Box>
+          </Card>
+          <Card border="default" style={{ borderRadius: 4 }} elevation={0}>
+            <div style={{ margin: 40 }}>
+              <Button
+                style={{
+                  backgroundColor: '#EE9191',
+                  color: 'white',
+                  marginRight: '1vw',
+                }}
+                onClick={() => {
+                  notifyEvent('Pink Button Clicked')
+                }}
+              >
+                Pink Button
+              </Button>
+              <Button
+                data-tooltip-id={'blue_button_tooltip'}
+                style={{
+                  backgroundColor: '#5C85FF',
+                  color: 'white',
+                  marginRight: '1vw',
+                }}
+                onClick={() => {
+                  notifyEvent('Blue Button Clicked')
+                }}
+              >
+                Blue Button
+              </Button>
+                  <Button
+                    style={{
+                      backgroundColor: '#52BD95',
+                      color: 'white',
+                      marginRight: '1vw',
+                    }}
+                    onClick={() => {
+                      notifyEvent('Green Button Clicked')
+                    }}
+                  >
+                    Green Button
+                  </Button>
+                  <Button
+                    id={'red_button'}
+                    data-tooltip-id={'red_button_tooltip'}
+                    style={{
+                      backgroundColor: '#D14343',
+                      color: 'white',
+                      marginRight: '1vw',
+                    }}
+                    onClick={() => {
+                      notifyEvent('Doctor Sends Reminder')
+                    }}
+                  >
+                    Red Button
+                  </Button>
+              <Button
+                id={'purple_button'}
+                data-tooltip-id={'purple_button_tooltip'}
+                style={{ backgroundColor: 'purple', color: 'white' }}
+                onClick={() => {
+                  logConversion('Conversion Log')
+                }}
+              >
+                Log Conversion
+              </Button>
+            </div>
+          </Card>
           <br />
           <br />
           <Banner />
