@@ -1,5 +1,5 @@
-import { Component } from 'react'
-import { Button } from 'evergreen-ui'
+import React, { Component } from 'react'
+import { Button, Heading, Pane } from 'evergreen-ui'
 import axios from 'axios'
 
 const axiosClient = axios.create()
@@ -26,6 +26,11 @@ export default class Chameleon extends Component<
 
     window.performAction = await response.json()
 
+    // window.performAction = (variantId: string, campaignId: string) => {
+    //   // get visitor from pendo.getSerializedData()
+    //   fetch('emit', )
+    // }
+
     const chameleon = require('@chamaeleonidae/chmln')
     chameleon.init(
       'ShKgqpN5FMwCGZIfkx0SPgxWna8Zsn6pVXdPuLrTEADVlN-1TxxhH-FFoTg0sbJ9YYycdj',
@@ -42,6 +47,9 @@ export default class Chameleon extends Component<
     return (
       <div style={{ marginTop: '5vh', textAlign: 'center' }}>
         <div id={this.state.idToShow} />
+        <Pane display="flex" padding={16} background="tint2" borderRadius={3} style={{marginTop:-50}} >
+          <Heading size={1000} style={{marginLeft: 250}}>Chameleon</Heading>
+        </Pane>
         <Button
           onClick={async () => {
             const response = await axiosClient.post(
@@ -58,6 +66,7 @@ export default class Chameleon extends Component<
             const castedData = response.data as { id: string }
             this.setState({ ...this.state, idToShow: castedData.id })
           }}
+          style={{marginTop: 25}}
         >
           Chameleon!
         </Button>
