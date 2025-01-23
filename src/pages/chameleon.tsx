@@ -26,6 +26,11 @@ export default class Chameleon extends Component<
 
     window.performAction = await response.json()
 
+    // window.performAction = (variantId: string, campaignId: string) => {
+    //   // get visitor from pendo.getSerializedData()
+    //   fetch('emit', )
+    // }
+
     const chameleon = require('@chamaeleonidae/chmln')
     chameleon.init(
       'ShKgqpN5FMwCGZIfkx0SPgxWna8Zsn6pVXdPuLrTEADVlN-1TxxhH-FFoTg0sbJ9YYycdj',

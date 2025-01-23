@@ -9,24 +9,31 @@ import {
   ResonanceCrossChannelClient,
   ResonanceMicrocopyProvider,
 } from 'resonance-client'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Paragraph, TextInput } from 'evergreen-ui'
+import Sidebar from '@/components/Sidebar'
+import { Box } from '@mui/material'
 
 export default function App({ Component, pageProps }: AppProps) {
   const [role, setRole] = useState<string>('owner')
   const [userId, setUserId] = useState<string>(
-    'db97b059-cbe8-454b-9ab1-7ee38499222e'
+    'db97b059-cbe8-454b-9ab1-7ee38499222e',
   )
+
+  const customPageProps = {
+    ...pageProps,
+    role,
+    setRole,
+    userId,
+    setUserId,
+  }
 
   return (
     <>
-      <Paragraph>Role</Paragraph>
-      <TextInput onChange={(e) => setRole(e.target.value)} value={role} />
+      <Sidebar />
+      <Box sx={{ marginLeft: 35, marginTop: 10 }}>
 
-      <br />
-      <br />
-      <Paragraph>User ID</Paragraph>
-      <TextInput onChange={(e) => setUserId(e.target.value)} value={userId} />
+      </Box>
       <ResonanceConversionLogger
         apiUrl={'https://app.staging.useresonance.com'}
         externalUserId={userId}
@@ -59,7 +66,7 @@ export default function App({ Component, pageProps }: AppProps) {
           userAttributes={{ role }}
           apiUrl={'https://app.staging.useresonance.com'}
         >
-          <Component {...pageProps} />
+          <Component {...customPageProps} />
         </ResonanceCrossChannelClient>
       </ResonanceMicrocopyProvider>
     </>
