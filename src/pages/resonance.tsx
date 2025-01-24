@@ -28,44 +28,6 @@ export default class Home extends Component<HomeProps, HomeState> {
     }
   }
 
-  componentDidMount() {
-    const script = document.createElement('script')
-    script.src = '/pendo-init.js'
-    document.body.appendChild(script)
-
-    script.addEventListener('load', async () => {
-      const { data } = await axios.post(
-        'https://app.staging.useresonance.com/api/pendo/getbestmessages',
-        {
-          externalUserId: 'jonathan',
-        },
-        {
-          headers: {
-            Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`,
-          },
-        }
-      )
-      // @ts-ignore
-      pendo.identify({
-        visitor: {
-          id: 'jonathan',
-          email: 'email',
-          full_name: 'full_name',
-          role: 'role',
-          creationDate: 'creationDate',
-          resonance: data,
-        },
-        account: {
-          id: 'id',
-          name: 'name',
-          is_paying: 'is_paying',
-          monthly_value: 'monthly_val',
-          planLevel: 'sub_cost',
-        },
-      })
-    })
-  }
-
   render() {
     return (
       <>
