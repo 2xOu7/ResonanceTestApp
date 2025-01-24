@@ -29,7 +29,7 @@
     "react-icons": "^5.4.0",
     "react-pro-sidebar": "^1.1.0",
     "react-tooltip": "^5.26.3",
-    "resonance-client": "^1.0.109"
+    "resonance-client": "^1.0.110"
   },
   "devDependencies": {
     "@types/node": "^20",
