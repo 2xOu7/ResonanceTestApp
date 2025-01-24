@@ -60,22 +60,6 @@ export default class Home extends Component<HomeProps, HomeState> {
           monthly_value: 'monthly_val',
           planLevel: 'sub_cost',
         },
-        guides: {
-          globalScripts: [
-            {
-              script: function (step: any, guide: any) {
-                alert('Hello')
-                console.log(step)
-                console.log(guide)
-              },
-              // Only run this on a specific known step id
-              test: function (step: any, guide: any) {
-                alert('Hello')
-                return true
-              },
-            },
-          ],
-        },
       })
     })
   }
