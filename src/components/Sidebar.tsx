@@ -13,6 +13,7 @@ import { GiChameleonGlyph } from "react-icons/gi";
 import { Button } from 'evergreen-ui'
 import Link from 'next/link'
 import { GridView, Home } from '@mui/icons-material'
+import ResonanceSVGIcon from '@/components/ResonanceSVGIcon'
 
 
 const drawerWidth = 240
@@ -60,7 +61,8 @@ export class Sidebar extends Component<{}, { isSidebarOpen: boolean, open: boole
 
   render() {
     const items = [
-      { text: 'Resonance', path: '/' , icon: <Home/> },
+      { text: 'Home', path: '/' , icon: <Home/> },
+      { text: 'Resonance', path: '/resonance' , icon: <ResonanceSVGIcon/> },
       { text: 'Chameleon', path: '/chameleon', icon:  <GiChameleonGlyph/> },
       { text: 'AppCues', path: '/appcues', icon: <GridView/>},
     ]
