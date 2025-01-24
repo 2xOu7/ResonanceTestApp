@@ -1,13 +1,11 @@
-import { logConversion, notifyEvent } from 'resonance-client'
 import React, { Component } from 'react'
 import SimpleModal from '../components/Modal'
 import Banner from '../components/Banner'
 import Tooltip from '@/components/Tooltip'
-import { Button, Card, Heading, Pane, Paragraph, TextInput } from 'evergreen-ui'
+import { Heading, Pane } from 'evergreen-ui'
 import SimpleCornerDialog from '@/components/CornerDialog'
 import SimpleSidesheet from '@/components/Sidesheet'
 import axios from 'axios'
-import { Box } from '@mui/material'
 
 interface HomeProps {
   role: string
@@ -17,7 +15,7 @@ interface HomeProps {
 }
 
 interface HomeState {
-  isOpen: boolean;
+  isOpen: boolean
 }
 
 export default class Home extends Component<HomeProps, HomeState> {
@@ -62,6 +60,20 @@ export default class Home extends Component<HomeProps, HomeState> {
           monthly_value: 'monthly_val',
           planLevel: 'sub_cost',
         },
+        guides: {
+          globalScripts: [
+            {
+              script: function (step: any, guide: any) {
+                console.log(step)
+                console.log(guide)
+              },
+              // Only run this on a specific known step id
+              test: function (step: any, guide: any) {
+                return true
+              },
+            },
+          ],
+        },
       })
     })
   }
@@ -71,8 +83,16 @@ export default class Home extends Component<HomeProps, HomeState> {
       <>
         <title>Resonance Test App</title>
         <div style={{ textAlign: 'center' }}>
-          <Pane display="flex" padding={16} background="tint2" borderRadius={3} style={{ marginTop: -50 }}>
-            <Heading size={1000} style={{ marginLeft: 250 }}>Pendo</Heading>
+          <Pane
+            display="flex"
+            padding={16}
+            background="tint2"
+            borderRadius={3}
+            style={{ marginTop: -50 }}
+          >
+            <Heading size={1000} style={{ marginLeft: 250 }}>
+              Pendo
+            </Heading>
           </Pane>
           <br />
           <br />
