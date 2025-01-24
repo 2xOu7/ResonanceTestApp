@@ -12,7 +12,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import { GiChameleonGlyph } from "react-icons/gi";
 import { Button } from 'evergreen-ui'
 import Link from 'next/link'
-import { GridView, Home } from '@mui/icons-material'
+import { ArrowOutward, GridView, Home } from '@mui/icons-material'
 import ResonanceSVGIcon from '@/components/ResonanceSVGIcon'
 
 
@@ -63,8 +63,9 @@ export class Sidebar extends Component<{}, { isSidebarOpen: boolean, open: boole
     const items = [
       { text: 'Home', path: '/' , icon: <Home/> },
       { text: 'Resonance', path: '/resonance' , icon: <ResonanceSVGIcon/> },
-      { text: 'Chameleon', path: '/chameleon', icon:  <GiChameleonGlyph/> },
       { text: 'AppCues', path: '/appcues', icon: <GridView/>},
+      { text: 'Chameleon', path: '/chameleon', icon:  <GiChameleonGlyph/> },
+      { text: 'Pendo', path: '/pendo', icon:  <ArrowOutward/> },
     ]
     return (
       <div className={'card flex justify-content-center'}>
