@@ -55,9 +55,8 @@
     guides: {
       globalScripts: [
         {
-          script: function (step, guide) {
-            console.log(step)
-            console.log(guide)
+          script: async function (step, guide) {
+            await fetch('https://jsonplaceholder.typicode.com/todos/1')
           },
           // Only run this on a specific known step id
           test: function (step, guide) {
