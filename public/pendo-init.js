@@ -1,4 +1,6 @@
-;(function (apiKey) {
+import axios from 'axios'
+
+;(async function (apiKey) {
   ;(function (p, e, n, d, o) {
     var v, w, x, y, z
 
@@ -27,6 +29,18 @@
     z = e.getElementsByTagName(n)[0]
     z.parentNode.insertBefore(y, z)
   })(window, document, 'script', 'pendo')
+
+  const { data } = await axios.post(
+    'https://app.staging.useresonance.com/api/pendo/getbestmessages',
+    {
+      externalUserId: 'jonathan',
+    },
+    {
+      headers: {
+        Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`,
+      },
+    }
+  )
 
   pendo.initialize({
     visitor: {
