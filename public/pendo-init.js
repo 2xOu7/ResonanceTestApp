@@ -35,7 +35,6 @@
       full_name: 'full_name',
       role: 'role',
       creationDate: 'creationDate',
-      resonance: data,
     },
 
     account: {
