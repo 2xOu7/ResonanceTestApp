@@ -1,6 +1,4 @@
-import axios from 'axios'
-
-;(async function (apiKey) {
+;(function (apiKey) {
   ;(function (p, e, n, d, o) {
     var v, w, x, y, z
 
@@ -30,33 +28,28 @@ import axios from 'axios'
     z.parentNode.insertBefore(y, z)
   })(window, document, 'script', 'pendo')
 
-  const { data } = await axios.post(
-    'https://app.staging.useresonance.com/api/pendo/getbestmessages',
-    {
-      externalUserId: 'jonathan',
-    },
-    {
-      headers: {
-        Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`,
-      },
-    }
-  )
-
   pendo.initialize({
     visitor: {
-      id: 'jonathan',
-      email: 'email',
-      full_name: 'full_name',
-      role: 'role',
-      creationDate: 'creationDate',
+      id: 'user-id', // Required if user is signed in. Should be human-readable (for example, email or username) because it's used in Pendo reports.
+      // is_paying:    // Recommended if using Pendo Feedback
+      // email:        // Recommended if using Pendo Feedback or NPS Email
+      // full_name:    // Recommended if using Pendo Feedback
+      // role:         // Optional
+
+      // You can add any additional visitor-level key values here,
+      // as long as it's not one of the above reserved names.
     },
 
     account: {
-      id: 'id',
-      name: 'name',
-      is_paying: 'is_paying',
-      monthly_value: 'monthly_val',
-      planLevel: 'sub_cost',
+      id: "acc-id // Highly recommended; required if using Pendo Feedback. Should be human-readable (for example, company name) because it's used in Pendo reports.",
+      // is_paying:    // Recommended if using Pendo Feedback
+      // monthly_value:// Recommended if using Pendo Feedback
+      // planLevel:    // Optional
+      // planPrice:    // Optional
+      // creationDate: // Optional
+
+      // You can add any additional account-level key values here,
+      // as long as it's not one of the above reserved names.
     },
 
     guides: {
@@ -73,4 +66,21 @@ import axios from 'axios'
       ],
     },
   })
+
+  // pendo.identify({
+  //   visitor: {
+  //     id: 'jonathan',
+  //     email: 'email',
+  //     full_name: 'full_name',
+  //     role: 'role',
+  //     creationDate: 'creationDate'
+  //   },
+  //   account: {
+  //     id: 'id',
+  //     name: 'name',
+  //     is_paying: 'is_paying',
+  //     monthly_value: 'monthly_val',
+  //     planLevel: 'sub_cost',
+  //   }
+  // });
 })('0f9a117a-2cab-4189-6c09-f94ee7a438ff')
