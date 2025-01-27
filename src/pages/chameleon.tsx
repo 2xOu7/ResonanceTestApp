@@ -30,6 +30,9 @@ export default class Chameleon extends Component<
     )
 
     window.resonanceCopies = data
+    window.logImpression = (variantId) => {
+      console.log(variantId)
+    }
 
     const chameleon = require('@chamaeleonidae/chmln')
     chameleon.init(
