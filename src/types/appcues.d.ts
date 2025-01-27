@@ -9,5 +9,5 @@ interface Window {
       variantId: string
     }
   }
-  logImpression: (string) => void
+  logImpression: (campaignId: string, variantId: string) => void
 }

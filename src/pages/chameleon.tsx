@@ -30,7 +30,8 @@ export default class Chameleon extends Component<
     )
 
     window.resonanceCopies = data
-    window.logImpression = (variantId) => {
+    window.logImpression = (campaignId: string, variantId: string) => {
+      console.log(campaignId)
       console.log(variantId)
     }
 
