@@ -3,5 +3,10 @@ interface Window {
   AppcuesSettings?: {
     enableURLDetection: boolean
   }
-  performAction: () => Promise<string>
+  resonanceCopies: {
+    [key: string]: {
+      content: any
+      variantId: string
+    }
+  }
 }
