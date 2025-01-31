@@ -53,9 +53,9 @@ export default class Chameleon extends Component<
       <div style={{ marginTop: '5vh', textAlign: 'center' }}>
         <div id={this.state.idToShow} />
         <Pane
-          display="flex"
+          display={'flex'}
           padding={16}
-          background="tint2"
+          background={'tint2'}
           borderRadius={3}
           style={{ marginTop: -50 }}
         >
