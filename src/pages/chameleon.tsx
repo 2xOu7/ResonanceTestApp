@@ -44,7 +44,6 @@ export default class Chameleon extends Component<
     chameleon.identify('123', {
       email: 'katherine@yourresonate.com',
       name: 'Katya Pioro',
-      resonanceCopies: data,
     })
   }
 
