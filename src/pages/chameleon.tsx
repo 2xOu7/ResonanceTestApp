@@ -17,18 +17,18 @@ export default class Chameleon extends Component<
   }
 
   async componentDidMount() {
-    // const { data } = await axios.post(
-    //   'https://app.staging.useresonance.com/api/chameleon/getbestmessages',
-    //   {
-    //     externalUserId: 'jonathan',
-    //   },
-    //   {
-    //     headers: {
-    //       Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`,
-    //     },
-    //   }
-    // )
-    //
+    const { data } = await axios.post(
+      'https://app.staging.useresonance.com/api/chameleon/getbestmessages',
+      {
+        externalUserId: 'jonathan',
+      },
+      {
+        headers: {
+          Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`,
+        },
+      }
+    )
+
     // window.resonanceCopies = data
     window.logImpression = (campaignId: string, variantId: string) => {
       console.log(campaignId)
