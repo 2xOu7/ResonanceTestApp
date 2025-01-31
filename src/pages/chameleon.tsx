@@ -29,7 +29,7 @@ export default class Chameleon extends Component<
       }
     )
 
-    // window.resonanceCopies = data
+    window.resonanceCopies = data
     window.logImpression = (campaignId: string, variantId: string) => {
       console.log(campaignId)
       console.log(variantId)
@@ -44,9 +44,6 @@ export default class Chameleon extends Component<
     chameleon.identify('123', {
       email: 'katherine@yourresonate.com',
       name: 'Katya Pioro',
-      result: {
-        q: 'sup',
-      },
     })
   }
 
