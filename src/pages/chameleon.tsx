@@ -29,7 +29,22 @@ export default class Chameleon extends Component<
       }
     )
 
-    window.resonanceCopies = data
+    const castedData = data as {
+      [key: string]: {
+        content: { [key: string]: string }
+        variantId: string
+      }
+    }
+
+    window.getField = (
+      campaignId: string,
+      fieldName: string,
+      fallback: string
+    ): string => {
+      const val = castedData?.[campaignId]?.content?.[fieldName]
+      return val ? val : fallback
+    }
+
     window.logImpression = (campaignId: string, variantId: string) => {
       console.log(campaignId)
       console.log(variantId)

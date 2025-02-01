@@ -9,5 +9,6 @@ interface Window {
       variantId: string
     }
   }
+  getField: (campaignId: string, fieldName: string, fallback: string) => string
   logImpression: (campaignId: string, variantId: string) => void
 }
