@@ -9,16 +9,25 @@ import {
   ResonanceCrossChannelClient,
   ResonanceMicrocopyProvider,
 } from 'resonance-client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Paragraph, TextInput } from 'evergreen-ui'
 import Sidebar from '@/components/Sidebar'
 import { Box } from '@mui/material'
+import Intercom from '@intercom/messenger-js-sdk'
 
 export default function App({ Component, pageProps }: AppProps) {
   const [role, setRole] = useState<string>('owner')
   const [userId, setUserId] = useState<string>(
     'db97b059-cbe8-454b-9ab1-7ee38499222e',
   )
+
+  useEffect(() => {
+    {
+      Intercom({
+        app_id: 'y52bz4ne',
+      });
+    }
+  }, [])
 
   const customPageProps = {
     ...pageProps,

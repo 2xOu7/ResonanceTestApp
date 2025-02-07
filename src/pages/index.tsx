@@ -6,6 +6,7 @@ import Tooltip from '@/components/Tooltip'
 import { Button, Card, Heading, Pane, Paragraph, TextInput } from 'evergreen-ui'
 import SimpleCornerDialog from '@/components/CornerDialog'
 import SimpleSidesheet from '@/components/Sidesheet'
+import Intercom from '@intercom/messenger-js-sdk';
 import axios from 'axios'
 import { Box } from '@mui/material'
 
@@ -27,6 +28,12 @@ export default class Home extends Component<HomeProps, HomeState> {
       isOpen: false,
     }
   }
+  //
+  // componentDidMount() {
+  //     Intercom({
+  //       app_id: 'y52bz4ne',
+  //     });
+  //   }
 
   render() {
     return (
