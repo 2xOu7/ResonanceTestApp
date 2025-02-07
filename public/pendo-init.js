@@ -28,45 +28,6 @@
     z.parentNode.insertBefore(y, z)
   })(window, document, 'script', 'pendo')
 
-  pendo.initialize({
-    visitor: {
-      id: 'user-id', // Required if user is signed in. Should be human-readable (for example, email or username) because it's used in Pendo reports.
-      // is_paying:    // Recommended if using Pendo Feedback
-      // email:        // Recommended if using Pendo Feedback or NPS Email
-      // full_name:    // Recommended if using Pendo Feedback
-      // role:         // Optional
-
-      // You can add any additional visitor-level key values here,
-      // as long as it's not one of the above reserved names.
-    },
-
-    account: {
-      id: "acc-id // Highly recommended; required if using Pendo Feedback. Should be human-readable (for example, company name) because it's used in Pendo reports.",
-      // is_paying:    // Recommended if using Pendo Feedback
-      // monthly_value:// Recommended if using Pendo Feedback
-      // planLevel:    // Optional
-      // planPrice:    // Optional
-      // creationDate: // Optional
-
-      // You can add any additional account-level key values here,
-      // as long as it's not one of the above reserved names.
-    },
-
-    guides: {
-      globalScripts: [
-        {
-          script: async function (step, guide) {
-            await fetch('https://jsonplaceholder.typicode.com/todos/1')
-          },
-          // Only run this on a specific known step id
-          test: function (step, guide) {
-            return true
-          },
-        },
-      ],
-    },
-  })
-
   // pendo.identify({
   //   visitor: {
   //     id: 'jonathan',
