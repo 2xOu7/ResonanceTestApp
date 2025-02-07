@@ -43,6 +43,48 @@ export default class Home extends Component<HomeProps, HomeState> {
           },
         }
       )
+
+      // @ts-ignore
+      pendo.initialize({
+        visitor: {
+          id: 'user-id', // Required if user is signed in. Should be human-readable (for example, email or username) because it's used in Pendo reports.
+          // is_paying:    // Recommended if using Pendo Feedback
+          // email:        // Recommended if using Pendo Feedback or NPS Email
+          // full_name:    // Recommended if using Pendo Feedback
+          // role:         // Optional
+
+          // You can add any additional visitor-level key values here,
+          // as long as it's not one of the above reserved names.
+        },
+
+        account: {
+          id: "acc-id // Highly recommended; required if using Pendo Feedback. Should be human-readable (for example, company name) because it's used in Pendo reports.",
+          // is_paying:    // Recommended if using Pendo Feedback
+          // monthly_value:// Recommended if using Pendo Feedback
+          // planLevel:    // Optional
+          // planPrice:    // Optional
+          // creationDate: // Optional
+
+          // You can add any additional account-level key values here,
+          // as long as it's not one of the above reserved names.
+        },
+
+        guides: {
+          globalScripts: [
+            {
+              script: async function (step: any, guide: any) {
+                console.log(guide)
+                console.log(step)
+              },
+              // Only run this on a specific known step id
+              test: function (step: any, guide: any) {
+                return true
+              },
+            },
+          ],
+        },
+      })
+
       // @ts-ignore
       pendo.identify({
         visitor: {
@@ -70,9 +112,9 @@ export default class Home extends Component<HomeProps, HomeState> {
         <title>Resonance Test App</title>
         <div style={{ textAlign: 'center' }}>
           <Pane
-            display="flex"
+            display={'flex'}
             padding={16}
-            background="tint2"
+            background={'tint2'}
             borderRadius={3}
             style={{ marginTop: -50 }}
           >
