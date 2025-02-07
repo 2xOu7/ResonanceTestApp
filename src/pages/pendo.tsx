@@ -112,9 +112,9 @@ export default class Home extends Component<HomeProps, HomeState> {
         <title>Resonance Test App</title>
         <div style={{ textAlign: 'center' }}>
           <Pane
-            display="flex"
+            display={'flex'}
             padding={16}
-            background="tint2"
+            background={'tint2'}
             borderRadius={3}
             style={{ marginTop: -50 }}
           >
