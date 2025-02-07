@@ -74,6 +74,7 @@ export default class Home extends Component<HomeProps, HomeState> {
             {
               script: async function (step: any, guide: any) {
                 console.log(guide)
+                console.log(step)
               },
               // Only run this on a specific known step id
               test: function (step: any, guide: any) {
