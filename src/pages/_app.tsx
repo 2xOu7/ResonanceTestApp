@@ -13,7 +13,7 @@ import React, { useEffect, useState } from 'react'
 import { Paragraph, TextInput } from 'evergreen-ui'
 import Sidebar from '@/components/Sidebar'
 import { Box } from '@mui/material'
-import Intercom from '@intercom/messenger-js-sdk'
+import { Intercom, update } from '@intercom/messenger-js-sdk'
 
 export default function App({ Component, pageProps }: AppProps) {
   const [role, setRole] = useState<string>('owner')
@@ -25,6 +25,11 @@ export default function App({ Component, pageProps }: AppProps) {
     {
       Intercom({
         app_id: 'y52bz4ne',
+        user_id: '123',
+        name: 'katherine',
+        email: 'katherine@useresonance.com',
+        created_at: 123,
+        custom_attribute: 'test',
       });
     }
   }, [])
