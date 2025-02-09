@@ -14,12 +14,26 @@ import { Paragraph, TextInput } from 'evergreen-ui'
 import Sidebar from '@/components/Sidebar'
 import { Box } from '@mui/material'
 import { Intercom, update } from '@intercom/messenger-js-sdk'
+import axios from 'axios'
+
+const { data } = await axios.post(
+  'https://app.staging.useresonance.com/api/pendo/getbestmessages',
+  {
+    externalUserId: 'katherine',
+  },
+  {
+    headers: {
+      Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`,
+    },
+  }
+)
 
 export default function App({ Component, pageProps }: AppProps) {
   const [role, setRole] = useState<string>('owner')
   const [userId, setUserId] = useState<string>(
     'db97b059-cbe8-454b-9ab1-7ee38499222e',
   )
+
 
   useEffect(() => {
     {
@@ -30,7 +44,17 @@ export default function App({ Component, pageProps }: AppProps) {
         email: 'katherine@useresonance.com',
         created_at: 123,
         custom_attribute: 'test',
+        resonance: "123"
       });
+      update({
+        app_id: 'y52bz4ne',
+        user_id: '123',
+        name: 'katherine',
+        email: 'katherine@useresonance.com',
+        created_at: 123,
+        custom_attribute: 'test',
+        resonance: "123"
+      })
     }
   }, [])
 
