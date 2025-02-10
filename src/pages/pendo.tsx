@@ -90,18 +90,21 @@ export default class Home extends Component<HomeProps, HomeState> {
           globalScripts: [
             {
               script: async function (step: any, guide: PendoGuide) {
+                if (guide.state !== "public") {
+                  return
+                }
                 const guides = Object.keys(data).map(d => data[d]).filter((element: PendoGetBestMessagesElement) => {
-                  return element.pendoGuideId === guide.guideId && guide.state === 'public'
+                  return element.pendoGuideId === guide.guideId
                 })
 
                 if (guides.length > 0) {
                   const resonanceGuideObj = guides[0]
 
-                  const response = await axiosClient.post(
+                  await axiosClient.post(
                     'https://app.staging.useresonance.com/api/pendo/logImpression',
                     {
                       campaignId: resonanceGuideObj.campaignId,
-                      variantId: data.variantId,
+                      variantName: resonanceGuideObj.variantName,
                       externalUserId: 'user-id',
                       userAttributes: {}
                     },
@@ -116,9 +119,14 @@ export default class Home extends Component<HomeProps, HomeState> {
               },
               // Only run this on a specific known step id
               test: function(step: any, guide: any) {
-                console.log(guide)
-                console.log(step)
-                return true
+                if (guide.state !== "public") {
+                  return false
+                }
+                const guides = Object.keys(data).map(d => data[d]).filter((element: PendoGetBestMessagesElement) => {
+                  return element.pendoGuideId === guide.guideId
+                })
+
+                return guides.length > 0
               },
             },
           ],
