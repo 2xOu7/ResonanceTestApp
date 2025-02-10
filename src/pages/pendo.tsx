@@ -17,6 +17,19 @@ interface HomeProps {
 interface HomeState {
   isOpen: boolean
 }
+
+interface PendoGetBestMessagesElement {
+  content:  any
+  campaignId: string
+  pendoGuideId: string
+  variantName: string
+}
+
+interface PendoGuide {
+  guideId: string
+  state: string
+}
+
 const axiosClient = axios.create()
 
 
@@ -34,7 +47,7 @@ export default class Home extends Component<HomeProps, HomeState> {
     document.body.appendChild(script)
 
     script.addEventListener('load', async () => {
-      const { data } = await axios.post(
+      const response = await axios.post<{ [key: string]: PendoGetBestMessagesElement }>(
         'https://app.staging.useresonance.com/api/pendo/getbestmessages',
         {
           externalUserId: 'jonathan',
@@ -44,7 +57,9 @@ export default class Home extends Component<HomeProps, HomeState> {
             Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`,
           },
         }
-      )
+      );
+
+      const { data } = response
 
       // @ts-ignore
       pendo.initialize({
@@ -74,14 +89,18 @@ export default class Home extends Component<HomeProps, HomeState> {
         guides: {
           globalScripts: [
             {
-              script: async function (step: any, guide: any) {
-                console.log(guide)
-                console.log(step)
-                if (guide.guideId === data.pendoGuideId) {
+              script: async function (step: any, guide: PendoGuide) {
+                const guides = Object.keys(data).map(d => data[d]).filter((element: PendoGetBestMessagesElement) => {
+                  return element.pendoGuideId === guide.guideId && guide.state === 'public'
+                })
+
+                if (guides.length > 0) {
+                  const resonanceGuideObj = guides[0]
+
                   const response = await axiosClient.post(
                     'https://app.staging.useresonance.com/api/pendo/logImpression',
                     {
-                      guideId: guide.guideId,
+                      campaignId: resonanceGuideObj.campaignId,
                       variantId: data.variantId,
                       externalUserId: 'user-id',
                       userAttributes: {}
