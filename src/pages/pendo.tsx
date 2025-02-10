@@ -48,13 +48,14 @@ export default class Home extends Component<HomeProps, HomeState> {
 
     script.addEventListener('load', async () => {
       const response = await axios.post<{ [key: string]: PendoGetBestMessagesElement }>(
-        'https://app.staging.useresonance.com/api/pendo/getbestmessages',
+        'https://app.staging.useresonance.com/api/pendo/getbestmessages', // substitute in your url
         {
           externalUserId: 'jonathan',
+          userAttributes: {"test":"test"}
         },
         {
           headers: {
-            Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`,
+            Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`, //substitute in your api key
           },
         }
       );
@@ -101,17 +102,17 @@ export default class Home extends Component<HomeProps, HomeState> {
                   const resonanceGuideObj = guides[0]
 
                   await axiosClient.post(
-                    'https://app.staging.useresonance.com/api/pendo/logImpression',
+                    'https://app.staging.useresonance.com/api/pendo/logImpression', // Substitute in your url
                     {
                       campaignId: resonanceGuideObj.campaignId,
                       variantName: resonanceGuideObj.variantName,
-                      externalUserId: 'user-id',
-                      userAttributes: {}
+                      externalUserId: 'user-id', // Substitute your external user id; i.e. visitor id
+                      userAttributes: {"test":"test"} // Substitute your user attributes; i.e. what you pass into the visitor object
                     },
                     {
                       headers: {
                         Authorization:
-                          'Bearer 3b2a055a03b91b08fe1af786ece89a9046ed5f64cecda06f533dadd1907d8e20b4d4e4dc7632719213dd71bd80d5074d',
+                          'Bearer 3b2a055a03b91b08fe1af786ece89a9046ed5f64cecda06f533dadd1907d8e20b4d4e4dc7632719213dd71bd80d5074d', // substitute your api key
                       },
                     }
                   )
@@ -119,15 +120,12 @@ export default class Home extends Component<HomeProps, HomeState> {
               },
               // Only run this on a specific known step id
               test: function(step: any, guide: PendoGuide) {
-                console.log("guide", guide)
                 if (guide.state !== "public") {
                   return false
                 }
                 const guides = Object.keys(data).map(d => data[d]).filter((element: PendoGetBestMessagesElement) => {
                   return element.pendoGuideId === guide.id
                 })
-
-                console.log("guides: ", guides)
 
                 return guides.length > 0
               },
