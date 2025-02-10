@@ -26,7 +26,7 @@ interface PendoGetBestMessagesElement {
 }
 
 interface PendoGuide {
-  guideId: string
+  id: string
   state: string
 }
 
@@ -94,7 +94,7 @@ export default class Home extends Component<HomeProps, HomeState> {
                   return
                 }
                 const guides = Object.keys(data).map(d => data[d]).filter((element: PendoGetBestMessagesElement) => {
-                  return element.pendoGuideId === guide.guideId
+                  return element.pendoGuideId === guide.id
                 })
 
                 if (guides.length > 0) {
@@ -118,13 +118,13 @@ export default class Home extends Component<HomeProps, HomeState> {
                 }
               },
               // Only run this on a specific known step id
-              test: function(step: any, guide: any) {
+              test: function(step: any, guide: PendoGuide) {
                 console.log("guide", guide)
                 if (guide.state !== "public") {
                   return false
                 }
                 const guides = Object.keys(data).map(d => data[d]).filter((element: PendoGetBestMessagesElement) => {
-                  return element.pendoGuideId === guide.guideId
+                  return element.pendoGuideId === guide.id
                 })
 
                 console.log("guides: ", guides)
