@@ -79,19 +79,24 @@ export default class Home extends Component<HomeProps, HomeState> {
                 console.log(step)
                 if (guide.guideId === data.pendoGuideId) {
                   const response = await axiosClient.post(
-                    'http://localhost:3000/api/pendo/logImpression',
-                    {},
+                    'https://app.staging.useresonance.com/api/pendo/logImpression',
+                    {
+                      guideId: guide.guideId,
+                      variantId: data.variantId,
+                      externalUserId: 'user-id',
+                      userAttributes: {}
+                    },
                     {
                       headers: {
                         Authorization:
-                          'Bearer f82310dfc3fced169d0bc94982cddcc301766204bedf7197edf7e9118a89187cac1f2ce332a4e5245b5c53375d489b5c',
+                          'Bearer 3b2a055a03b91b08fe1af786ece89a9046ed5f64cecda06f533dadd1907d8e20b4d4e4dc7632719213dd71bd80d5074d',
                       },
                     }
                   )
                 }
               },
               // Only run this on a specific known step id
-              test: async function(step: any, guide: any) {
+              test: function(step: any, guide: any) {
                 console.log(guide)
                 console.log(step)
                 return true
