@@ -17,6 +17,8 @@ interface HomeProps {
 interface HomeState {
   isOpen: boolean
 }
+const axiosClient = axios.create()
+
 
 export default class Home extends Component<HomeProps, HomeState> {
   constructor(props: HomeProps) {
@@ -75,9 +77,26 @@ export default class Home extends Component<HomeProps, HomeState> {
               script: async function (step: any, guide: any) {
                 console.log(guide)
                 console.log(step)
+                if (guide.guideId === data.pendoGuideId) {
+                  const response = await axiosClient.post(
+                    'https://app.staging.useresonance.com/api/pendo/logImpression',
+                    {
+                      guideId: guide.guideId,
+                      variantId: data.variantId,
+                      externalUserId: 'user-id',
+                      userAttributes: {}
+                    },
+                    {
+                      headers: {
+                        Authorization:
+                          'Bearer 3b2a055a03b91b08fe1af786ece89a9046ed5f64cecda06f533dadd1907d8e20b4d4e4dc7632719213dd71bd80d5074d',
+                      },
+                    }
+                  )
+                }
               },
               // Only run this on a specific known step id
-              test: function (step: any, guide: any) {
+              test: function(step: any, guide: any) {
                 console.log(guide)
                 console.log(step)
                 return true
