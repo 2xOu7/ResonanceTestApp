@@ -119,7 +119,7 @@ export default class Home extends Component<HomeProps, HomeState> {
               },
               // Only run this on a specific known step id
               test: function(step: any, guide: any) {
-                console.log("guide state", guide.state)
+                console.log("guide", guide)
                 if (guide.state !== "public") {
                   return false
                 }
