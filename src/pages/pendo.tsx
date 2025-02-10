@@ -102,7 +102,7 @@ export default class Home extends Component<HomeProps, HomeState> {
                   const resonanceGuideObj = guides[0]
 
                   await axiosClient.post(
-                    'https://app.staging.useresonance.com/api/pendo/logImpression', // Substitute in your url
+                    'https://app.staging.useresonance.com/api/pendo/logExposure', // Substitute in your url
                     {
                       campaignId: resonanceGuideObj.campaignId,
                       variantName: resonanceGuideObj.variantName,
