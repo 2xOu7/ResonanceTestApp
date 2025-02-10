@@ -132,21 +132,6 @@ export default class Home extends Component<HomeProps, HomeState> {
           ],
         },
       })
-
-      // @ts-ignore
-      pendo.initialize({
-        visitor: {
-          id: 'jonathan',
-          email: 'piggy@gmail.com',
-        },
-        account: {
-          id: 'id',
-          name: 'name',
-          is_paying: 'is_paying',
-          monthly_value: 'monthly_val',
-          planLevel: 'miggy',
-        },
-      })
     })
   }
 
