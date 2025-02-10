@@ -19,6 +19,7 @@ export default class Chameleon extends Component<
   async componentDidMount() {
     const { data } = await axios.post(
       'https://app.staging.useresonance.com/api/chameleon/getbestmessages',
+      // 'http://localhost:3000/api/chameleon/getbestmessages',
       {
         externalUserId: 'jonathan',
       },
@@ -81,6 +82,7 @@ export default class Chameleon extends Component<
           onClick={async () => {
             const response = await axiosClient.post(
               'https://app.staging.useresonance.com/api/chameleon/getbestmessages',
+              // 'http://localhost:3000/api/chameleon/getbestmessages',
               {},
               {
                 headers: {

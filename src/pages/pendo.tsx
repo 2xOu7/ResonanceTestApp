@@ -34,6 +34,7 @@ export default class Home extends Component<HomeProps, HomeState> {
     script.addEventListener('load', async () => {
       const { data } = await axios.post(
         'https://app.staging.useresonance.com/api/pendo/getbestmessages',
+        // 'http://localhost:3000/api/pendo/getbestmessages',
         {
           externalUserId: 'jonathan',
         },

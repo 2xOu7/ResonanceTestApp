@@ -28,12 +28,6 @@ export default class Home extends Component<HomeProps, HomeState> {
       isOpen: false,
     }
   }
-  //
-  // componentDidMount() {
-  //     Intercom({
-  //       app_id: 'y52bz4ne',
-  //     });
-  //   }
 
   render() {
     return (

@@ -10,53 +10,66 @@ import {
   ResonanceMicrocopyProvider,
 } from 'resonance-client'
 import React, { useEffect, useState } from 'react'
-import { Paragraph, TextInput } from 'evergreen-ui'
 import Sidebar from '@/components/Sidebar'
 import { Box } from '@mui/material'
-import { Intercom, update } from '@intercom/messenger-js-sdk'
+import { Intercom, startTour } from '@intercom/messenger-js-sdk'
 import axios from 'axios'
-
-const { data } = await axios.post(
-  'https://app.staging.useresonance.com/api/pendo/getbestmessages',
-  {
-    externalUserId: 'katherine',
-  },
-  {
-    headers: {
-      Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`,
-    },
-  }
-)
 
 export default function App({ Component, pageProps }: AppProps) {
   const [role, setRole] = useState<string>('owner')
   const [userId, setUserId] = useState<string>(
     'db97b059-cbe8-454b-9ab1-7ee38499222e',
   )
+  const [campaigns, setCampaigns] = useState<any>('hi')
+  const intercomUserId = "1234533"
 
 
   useEffect(() => {
-    {
-      Intercom({
-        app_id: 'y52bz4ne',
-        user_id: '123',
-        name: 'katherine',
-        email: 'katherine@useresonance.com',
-        created_at: 123,
-        custom_attribute: 'test',
-        resonance: "123"
-      });
-      update({
-        app_id: 'y52bz4ne',
-        user_id: '123',
-        name: 'katherine',
-        email: 'katherine@useresonance.com',
-        created_at: 123,
-        custom_attribute: 'test',
-        resonance: "123"
-      })
-    }
-  }, [])
+    const fetchMessages = async () => {
+      try {
+        const { data } = await axios.post(
+          'https://app.staging.useresonance.com/api/pendo/getbestmessages',
+          // 'http://localhost:3000/api/intercom/getbestmessages',
+          { externalUserId: userId },
+          {
+            headers: {
+              Authorization: `Bearer 853d219b70987077dd4678e2a94cd0eb9ead430ce6e7013233044a83bd37836a391032cb5a58128e47bb57b8b8b8e19b`,
+              // Authorization: `Bearer 604ff7f2189caab413683c9bb62c965644b2990d88006d745fd9acf13150d7a4527c77a8dcb2da2fa47ceccf3ac3016c`,
+            },
+          }
+        );
+        setCampaigns(data);
+      } catch (error) {
+        console.error('Error fetching messages:', error);
+      }
+    };
+
+    fetchMessages()
+  }, [userId]); // Dependency array ensures re-run when userId changes
+
+  useEffect(() => {
+    Intercom({
+      app_id: 'y52bz4ne',
+      user_id: intercomUserId,
+      name: 'katherinep',
+      email: 'katherinee@useresonance.comm',
+      created_at: 123,
+      custom_attribute: 'test',
+      resonance: campaigns
+    });
+
+    startTour('589934')
+
+    // update({
+    //   app_id: 'y52bz4ne',
+    //   user_id: '123',
+    //   name: 'katherine',
+    //   email: 'katherine@useresonance.com',
+    //   created_at: 123,
+    //   custom_attribute: 'test',
+    //   resonance: "123"
+    // })
+  }, [campaigns])
 
   const customPageProps = {
     ...pageProps,
@@ -74,17 +87,19 @@ export default function App({ Component, pageProps }: AppProps) {
       </Box>
       <ResonanceConversionLogger
         apiUrl={'https://app.staging.useresonance.com'}
+        // apiUrl={'http://localhost:3000'}
         externalUserId={userId}
         apiKey={
-          '3b2a055a03b91b08fe1af786ece89a9046ed5f64cecda06f533dadd1907d8e20b4d4e4dc7632719213dd71bd80d5074d'
+          '853d219b70987077dd4678e2a94cd0eb9ead430ce6e7013233044a83bd37836a391032cb5a58128e47bb57b8b8b8e19b'
         }
         userAttributes={{ role }}
       />
       <ResonanceMicrocopyProvider
         apiUrl={'https://app.staging.useresonance.com'}
+        // apiUrl={'http://localhost:3000'}
         externalUserId={userId}
         apiKey={
-          '3b2a055a03b91b08fe1af786ece89a9046ed5f64cecda06f533dadd1907d8e20b4d4e4dc7632719213dd71bd80d5074d'
+          '853d219b70987077dd4678e2a94cd0eb9ead430ce6e7013233044a83bd37836a391032cb5a58128e47bb57b8b8b8e19b'
         }
         eventContext={{
           'User First Name': 'Jane',
@@ -95,7 +110,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <ResonanceCrossChannelClient
           externalUserId={userId}
           apiKey={
-            '3b2a055a03b91b08fe1af786ece89a9046ed5f64cecda06f533dadd1907d8e20b4d4e4dc7632719213dd71bd80d5074d'
+            '853d219b70987077dd4678e2a94cd0eb9ead430ce6e7013233044a83bd37836a391032cb5a58128e47bb57b8b8b8e19b'
           }
           eventContext={{
             'User First Name': 'Jane',
@@ -103,6 +118,7 @@ export default function App({ Component, pageProps }: AppProps) {
           }}
           userAttributes={{ role }}
           apiUrl={'https://app.staging.useresonance.com'}
+          // apiUrl={'http://localhost:3000'}
         >
           <Component {...customPageProps} />
         </ResonanceCrossChannelClient>
