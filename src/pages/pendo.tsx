@@ -119,12 +119,15 @@ export default class Home extends Component<HomeProps, HomeState> {
               },
               // Only run this on a specific known step id
               test: function(step: any, guide: any) {
+                console.log("guide state", guide.state)
                 if (guide.state !== "public") {
                   return false
                 }
                 const guides = Object.keys(data).map(d => data[d]).filter((element: PendoGetBestMessagesElement) => {
                   return element.pendoGuideId === guide.guideId
                 })
+
+                console.log("guides: ", guides)
 
                 return guides.length > 0
               },
