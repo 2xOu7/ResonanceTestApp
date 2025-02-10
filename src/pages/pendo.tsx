@@ -120,6 +120,7 @@ export default class Home extends Component<HomeProps, HomeState> {
               },
               // Only run this on a specific known step id
               test: function(step: any, guide: PendoGuide) {
+                console.log(guide)
                 if (guide.state !== "public") {
                   return false
                 }
