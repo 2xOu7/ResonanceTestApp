@@ -17,6 +17,8 @@ interface HomeProps {
 interface HomeState {
   isOpen: boolean
 }
+const axiosClient = axios.create()
+
 
 export default class Home extends Component<HomeProps, HomeState> {
   constructor(props: HomeProps) {
@@ -75,9 +77,21 @@ export default class Home extends Component<HomeProps, HomeState> {
               script: async function (step: any, guide: any) {
                 console.log(guide)
                 console.log(step)
+                if (guide.guideId === data.pendoGuideId) {
+                  const response = await axiosClient.post(
+                    'http://localhost:3000/api/pendo/logImpression',
+                    {},
+                    {
+                      headers: {
+                        Authorization:
+                          'Bearer f82310dfc3fced169d0bc94982cddcc301766204bedf7197edf7e9118a89187cac1f2ce332a4e5245b5c53375d489b5c',
+                      },
+                    }
+                  )
+                }
               },
               // Only run this on a specific known step id
-              test: function (step: any, guide: any) {
+              test: async function(step: any, guide: any) {
                 console.log(guide)
                 console.log(step)
                 return true
