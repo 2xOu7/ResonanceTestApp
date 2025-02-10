@@ -138,6 +138,7 @@ export default class Home extends Component<HomeProps, HomeState> {
         visitor: {
           id: 'jonathan',
           email: 'email',
+          dub: 'w',
         },
         account: {
           id: 'id',
