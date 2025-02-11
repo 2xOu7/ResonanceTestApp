@@ -48,14 +48,18 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [userId]); // Dependency array ensures re-run when userId changes
 
   useEffect(() => {
+
+    const variantName = campaigns[campaignId]
+
     Intercom({
       app_id: 'y52bz4ne',
       user_id: intercomUserId,
       name: 'katherinep',
       email: 'katherinee@useresonance.comm',
       created_at: 123,
-      custom_attribute: 'test',
-      resonance: campaigns
+      custom_attribute: 'testing', // make chosenVariant
+      resonance: campaigns,
+      variantName: variantName,
     });
 
     startTour('589934')
