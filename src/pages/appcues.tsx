@@ -14,10 +14,16 @@ export default class Appcues extends Component {
           },
         }
       ).then(({ data }) => {
+        const castedData = data as {
+          [key: string]: {
+            content: { [key: string]: string }
+            variantId: string
+          }
+        }
         window.Appcues.identify('test_user_id', {
           name: 'Katherine Pioro',
           email: 'katherine@useresonance.com',
-          test: data
+          test: castedData
         });
 
         window.Appcues.show("05888a59-8aec-4b55-9222-0b97156851a7");
