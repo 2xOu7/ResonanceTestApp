@@ -8,8 +8,8 @@ export default class Appcues extends Component<{}, {}> {
         'test_user_id', // Replace with actual user ID
         {
           // Add any user properties you want to track
-          name: 'Jonathan Ou',
-          email: 'jonathan@useresonance.com',
+          name: 'Katherine Pioro',
+          email: 'katherine@useresonance.com',
         }
       )
     }
