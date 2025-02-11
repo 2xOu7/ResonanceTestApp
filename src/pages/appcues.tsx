@@ -6,11 +6,11 @@ export default class Appcues extends Component {
   componentDidMount() {
     if (window.Appcues) {
       axios.post(
-        'http://localhost:3000/api/appcues/getbestmessages',
+        'https://app.staging.useresonance.com/api/appcues/getbestmessages',
         {},
         {
           headers: {
-            Authorization: `Bearer 8928257a2acdda374fb314d0a845f73a3b3d9118a77c6c0f17d5bae97e29283e54a0e7fc097665de42fc7efb1ef483ad`,
+            Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`,
           },
         }
       ).then(({ data }) => {
