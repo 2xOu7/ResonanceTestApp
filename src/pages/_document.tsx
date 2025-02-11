@@ -13,7 +13,7 @@ export default function Document() {
             `,
           }}
         />
-        <script async src={'//fast.appcues.com/218242.js'} />
+        <script async src={'//fast.appcues.com/218956.js'} />
       </Head>
       <body>
         <Main />
