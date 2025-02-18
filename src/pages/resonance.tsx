@@ -6,8 +6,7 @@ import Tooltip from '@/components/Tooltip'
 import { Button, Card, Heading, Pane, Paragraph, TextInput } from 'evergreen-ui'
 import SimpleCornerDialog from '@/components/CornerDialog'
 import SimpleSidesheet from '@/components/Sidesheet'
-import axios from 'axios'
-import { Box } from '@mui/material'
+import { init, track } from '@amplitude/analytics-node'
 
 interface HomeProps {
   role: string
@@ -27,6 +26,14 @@ export default class Home extends Component<HomeProps, HomeState> {
       isOpen: false,
     }
   }
+
+  componentDidMount() {
+    init('262fda914083ea80d83dcc156506fb8e')
+    track('Button Clicked', undefined, {
+      user_id: 'user@amplitude.com',
+    });
+  }
+
 
   render() {
     return (
