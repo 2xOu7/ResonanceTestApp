@@ -10,7 +10,6 @@ import {
   ResonanceMicrocopyProvider,
 } from 'resonance-client'
 import React, { useEffect, useState } from 'react'
-import { Paragraph, TextInput } from 'evergreen-ui'
 import Sidebar from '@/components/Sidebar'
 import { Box } from '@mui/material'
 import { Intercom, update } from '@intercom/messenger-js-sdk'
