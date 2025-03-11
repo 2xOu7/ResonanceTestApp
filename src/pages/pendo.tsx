@@ -23,6 +23,7 @@ interface PendoGetBestMessagesElement {
   campaignId: string
   pendoGuideId: string
   variantName: string
+  pendoStepId: string
 }
 
 interface PendoGuide {
@@ -84,14 +85,19 @@ export default class Home extends Component<HomeProps, HomeState> {
         guides: {
           globalScripts: [
             {
-              script: async function (_step: any, guide: PendoGuide) {
+              script: async function (step: any, guide: PendoGuide) {
+                console.log('step', step)
+
                 if (guide.state !== 'public') {
                   return
                 }
                 const guides = Object.keys(data)
                   .map((d) => data[d])
                   .filter((element: PendoGetBestMessagesElement) => {
-                    return element.pendoGuideId === guide.id
+                    return (
+                      element.pendoGuideId === guide.id &&
+                      element.pendoStepId === step.id
+                    )
                   })
 
                 if (guides.length > 0) {
