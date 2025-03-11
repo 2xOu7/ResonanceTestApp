@@ -88,10 +88,6 @@ export default class Home extends Component<HomeProps, HomeState> {
               script: async function (step: any, guide: PendoGuide) {
                 console.log(arguments)
 
-                // if (guide.state !== 'public') {
-                //   return
-                // }
-
                 const guides = Object.keys(data)
                   .map((d) => data[d])
                   .filter((element: PendoGetBestMessagesElement) => {
@@ -121,12 +117,9 @@ export default class Home extends Component<HomeProps, HomeState> {
                   )
                 }
               },
+
               // Only run this on a specific known step id
               test: function (step: any, guide: PendoGuide) {
-                // if (guide.state !== 'public') {
-                //   return false
-                // }
-
                 const guides = Object.keys(data)
                   .map((d) => data[d])
                   .filter((element: PendoGetBestMessagesElement) => {
