@@ -86,7 +86,7 @@ export default class Home extends Component<HomeProps, HomeState> {
           globalScripts: [
             {
               script: async function (step: any, guide: PendoGuide) {
-                console.log('step', step)
+                console.log(arguments)
 
                 if (guide.state !== 'public') {
                   return
@@ -121,7 +121,7 @@ export default class Home extends Component<HomeProps, HomeState> {
                 }
               },
               // Only run this on a specific known step id
-              test: function (_step: any, guide: PendoGuide) {
+              test: function (step: any, guide: PendoGuide) {
                 console.log(arguments)
                 if (guide.state !== 'public') {
                   return false
@@ -129,7 +129,10 @@ export default class Home extends Component<HomeProps, HomeState> {
                 const guides = Object.keys(data)
                   .map((d) => data[d])
                   .filter((element: PendoGetBestMessagesElement) => {
-                    return element.pendoGuideId === guide.id
+                    return (
+                      element.pendoGuideId === guide.id &&
+                      element.pendoStepId === step.id
+                    )
                   })
 
                 return guides.length > 0
