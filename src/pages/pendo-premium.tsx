@@ -135,6 +135,7 @@ export default class Home extends Component<HomeProps, HomeState> {
                     )
                   })
 
+                console.log(guides)
                 return guides.length > 0
               },
             },
