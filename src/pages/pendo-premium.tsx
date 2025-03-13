@@ -24,7 +24,6 @@ interface PendoGetBestMessagesElement {
   pendoGuideId: string
   variantName: string
   pendoStepId: string
-  campaignName: string
 }
 
 interface PendoGuide {
@@ -87,6 +86,8 @@ export default class Home extends Component<HomeProps, HomeState> {
           globalScripts: [
             {
               script: async function (step: any, guide: PendoGuide) {
+                console.log(arguments)
+
                 const guides = Object.keys(data)
                   .map((d) => data[d])
                   .filter((element: PendoGetBestMessagesElement) => {
@@ -102,7 +103,7 @@ export default class Home extends Component<HomeProps, HomeState> {
                   await axiosClient.post(
                     'https://app.staging.useresonance.com/api/pendo/logExposure', // Substitute in your url
                     {
-                      campaignName: resonanceGuideObj.campaignName,
+                      campaignId: resonanceGuideObj.campaignId,
                       variantName: resonanceGuideObj.variantName,
                       externalUserId: 'user-id', // Substitute your external user id; i.e. visitor id
                       userAttributes: { test: 'test' }, // Substitute your user attributes; i.e. what you pass into the visitor object
@@ -128,6 +129,7 @@ export default class Home extends Component<HomeProps, HomeState> {
                     )
                   })
 
+                console.log(guides)
                 return guides.length > 0
               },
             },
