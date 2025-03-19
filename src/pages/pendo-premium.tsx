@@ -53,7 +53,7 @@ export default class Home extends Component<HomeProps, HomeState> {
         'https://app.staging.useresonance.com/api/pendo/getbestmessages', // substitute in your url
         {
           externalUserId: 'jonathan',
-          userAttributes: { test: 'test' },
+          userAttributes: { industry: 'pharmaceutical' },
         },
         {
           headers: {
