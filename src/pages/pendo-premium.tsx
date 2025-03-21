@@ -73,7 +73,7 @@ export default class Home extends Component<HomeProps, HomeState> {
           role: 'role',
           creationDate: 'creationDate',
           resonance: data,
-          industry: 'pharmaceutical',
+          industry: 'legal',
         },
         account: {
           id: 'id',
