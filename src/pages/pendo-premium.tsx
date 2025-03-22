@@ -22,7 +22,7 @@ interface PendoGetBestMessagesElement {
   content: any
   campaignId: string
   pendoGuideId: string
-  variantName: string
+  ruleId: string
   pendoStepId: string
 }
 
@@ -32,6 +32,13 @@ interface PendoGuide {
 }
 
 const axiosClient = axios.create()
+
+interface PendoLogImpressionRequest {
+  campaignId: string
+  externalUserId: string
+  userAttributes: { [key: string]: string }
+  ruleId: string
+}
 
 export default class Home extends Component<HomeProps, HomeState> {
   constructor(props: HomeProps) {
@@ -87,8 +94,6 @@ export default class Home extends Component<HomeProps, HomeState> {
           globalScripts: [
             {
               script: async function (step: any, guide: PendoGuide) {
-                console.log(arguments)
-
                 const guides = Object.keys(data)
                   .map((d) => data[d])
                   .filter((element: PendoGetBestMessagesElement) => {
@@ -101,14 +106,16 @@ export default class Home extends Component<HomeProps, HomeState> {
                 if (guides.length > 0) {
                   const resonanceGuideObj = guides[0]
 
+                  const impressionRequest: PendoLogImpressionRequest = {
+                    campaignId: resonanceGuideObj.campaignId,
+                    ruleId: resonanceGuideObj.ruleId,
+                    externalUserId: 'jonathan', // Substitute your external user id; i.e. visitor id
+                    userAttributes: { industry: 'legal' }, // Substitute your user attributes; i.e. what you pass into the visitor object
+                  }
+
                   await axiosClient.post(
                     'https://app.staging.useresonance.com/api/pendo/logExposure', // Substitute in your url
-                    {
-                      campaignId: resonanceGuideObj.campaignId,
-                      variantName: resonanceGuideObj.variantName,
-                      externalUserId: 'user-id', // Substitute your external user id; i.e. visitor id
-                      userAttributes: { test: 'test' }, // Substitute your user attributes; i.e. what you pass into the visitor object
-                    },
+                    impressionRequest,
                     {
                       headers: {
                         Authorization:
@@ -130,7 +137,6 @@ export default class Home extends Component<HomeProps, HomeState> {
                     )
                   })
 
-                console.log(guides)
                 return guides.length > 0
               },
             },
