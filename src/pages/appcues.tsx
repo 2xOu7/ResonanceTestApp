@@ -19,7 +19,7 @@ export default class Appcues extends Component {
           window.Appcues.identify('test_user_id', {
             name: 'Katherine Pioro',
             email: 'katherine@useresonance.com',
-            test: data,
+            resonance: data,
           })
         })
         .catch((error) => console.error('Error fetching Appcues data:', error))
