@@ -19,7 +19,7 @@ export default class Appcues extends Component {
           window.Appcues.identify('test_user_id', {
             name: 'Katherine Pioro',
             email: 'katherine@useresonance.com',
-            resonance: data,
+            resonance: 'resonance',
           })
 
           window.Appcues.page()
