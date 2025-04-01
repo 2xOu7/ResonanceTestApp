@@ -8,7 +8,9 @@ export default class Appcues extends Component {
       axios
         .post(
           'https://app.staging.useresonance.com/api/appcues/getbestmessages',
-          {},
+          {
+            restaurant_type: 'bakery',
+          },
           {
             headers: {
               Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`,
@@ -16,6 +18,7 @@ export default class Appcues extends Component {
           }
         )
         .then(({ data }) => {
+          // const castedData = data as { [key: string]: string }
           window.Appcues.on('step_started', function (event: any) {
             console.log(JSON.stringify(event))
           })
@@ -23,6 +26,7 @@ export default class Appcues extends Component {
           window.Appcues.identify('test_user_id', {
             name: 'Katherine Pioro',
             email: 'katherine@useresonance.com',
+            restaurant_type: 'bakery',
             resonance: 'resonance',
           })
 
