@@ -21,6 +21,9 @@ export default class Appcues extends Component {
             email: 'katherine@useresonance.com',
             resonance: data,
           })
+
+          window.Appcues.page()
+          console.log('Sup')
         })
         .catch((error) => console.error('Error fetching Appcues data:', error))
     }
