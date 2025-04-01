@@ -9,7 +9,8 @@ export default class Appcues extends Component {
         .post(
           'https://app.staging.useresonance.com/api/appcues/getbestmessages',
           {
-            restaurant_type: 'bakery',
+            externalUserId: 'test_user_id',
+            userAttributes: { restaurant_type: 'bakery' },
           },
           {
             headers: {
