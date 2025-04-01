@@ -16,6 +16,10 @@ export default class Appcues extends Component {
           }
         )
         .then(({ data }) => {
+          window.Appcues.on('step_started', function (event: any) {
+            console.log(JSON.stringify(event))
+          })
+
           window.Appcues.identify('test_user_id', {
             name: 'Katherine Pioro',
             email: 'katherine@useresonance.com',
