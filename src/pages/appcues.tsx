@@ -19,7 +19,27 @@ export default class Appcues extends Component {
           }
         )
         .then(({ data }) => {
-          // const castedData = data as { [key: string]: string }
+          const castedData = data as {
+            [key: string]: {
+              content: { [field: string]: string }
+              appcuesFlowId: string
+              campaignId: string
+              appcuesStepGroupId: string
+              appcuesStepId: string
+              ruleId: string
+            }
+          }
+
+          const allCampaignContentKeys: { [field: string]: string } = {}
+
+          Object.keys(castedData).forEach((campaignId: string) => {
+            const { content } = castedData[campaignId]
+            Object.keys(content).forEach((field: string) => {
+              allCampaignContentKeys[`resonance-${campaignId}-${field}`] =
+                content[field]
+            })
+          })
+
           window.Appcues.on('step_started', function (event: any) {
             console.log(JSON.stringify(event))
           })
@@ -28,11 +48,10 @@ export default class Appcues extends Component {
             name: 'Katherine Pioro',
             email: 'katherine@useresonance.com',
             restaurant_type: 'bakery',
-            resonance: 'resonance',
+            ...allCampaignContentKeys,
           })
 
           window.Appcues.page()
-          console.log('Sup')
         })
         .catch((error) => console.error('Error fetching Appcues data:', error))
     }
