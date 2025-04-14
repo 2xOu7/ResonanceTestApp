@@ -54,15 +54,93 @@ export default class Home extends Component<HomeProps, HomeState> {
     document.body.appendChild(script)
 
     script.addEventListener('load', async () => {
+      const response = await axios.post<{
+        [key: string]: PendoGetBestMessagesElement
+      }>(
+        'https://app.staging.useresonance.com/api/pendo/getbestmessages', // substitute in your url
+        {
+          externalUserId: 'jonathan',
+          userAttributes: { industry: 'legal' },
+        },
+        {
+          headers: {
+            Authorization: `Bearer a73143d411c6ce081479fbf6136659ad75f5ee6e459476f8a26f2090908fc9d52fe89e8f1b283cb253f687e77aebc5a2`, //substitute in your api key
+          },
+        }
+      )
+
+      const { data } = response
+
       // @ts-ignore
       pendo.initialize({
-        visitor: {},
+        visitor: {
+          id: 'jonathan',
+          email: 'email',
+          full_name: 'full_name',
+          role: 'role',
+          creationDate: 'creationDate',
+          resonance: data,
+          industry: 'legal',
+        },
         account: {
           id: 'id',
           name: 'name',
           is_paying: 'is_paying',
           monthly_value: 'monthly_val',
           planLevel: 'sub_cost',
+        },
+
+        guides: {
+          globalScripts: [
+            {
+              script: async function (step: any, guide: PendoGuide) {
+                const guides = Object.keys(data)
+                  .map((d) => data[d])
+                  .filter((element: PendoGetBestMessagesElement) => {
+                    return (
+                      element.pendoGuideId === guide.id &&
+                      element.pendoStepId === step.id
+                    )
+                  })
+
+                if (guides.length > 0) {
+                  const resonanceGuideObj = guides[0]
+
+                  const impressionRequest: PendoLogImpressionRequest = {
+                    campaignId: resonanceGuideObj.campaignId,
+                    ruleId: resonanceGuideObj.ruleId,
+                    externalUserId: 'jonathan', // Substitute your external user id; i.e. visitor id
+                    userAttributes: { industry: 'legal' }, // Substitute your user attributes; i.e. what you pass into the visitor object
+                  }
+
+                  await axiosClient.post(
+                    'https://app.staging.useresonance.com/api/pendo/logExposure', // Substitute in your url
+                    impressionRequest,
+                    {
+                      headers: {
+                        Authorization:
+                          'Bearer 3b2a055a03b91b08fe1af786ece89a9046ed5f64cecda06f533dadd1907d8e20b4d4e4dc7632719213dd71bd80d5074d', // substitute your api key
+                      },
+                    }
+                  )
+                }
+              },
+
+              // Only run this on a specific known step id
+              test: function (step: any, guide: PendoGuide) {
+                const guides = Object.keys(data)
+                  .map((d) => data[d])
+                  .filter((element: PendoGetBestMessagesElement) => {
+                    return (
+                      element.pendoGuideId === guide.id &&
+                      element.pendoStepId === step.id
+                    )
+                  })
+
+                return guides.length > 0
+              },
+            },
+          ],
         },
       })
     })
