@@ -72,6 +72,13 @@ export default class Home extends Component<HomeProps, HomeState> {
       const { data } = response
 
       // @ts-ignore
+      pendo.updateOptions({
+        visitor: {
+          q: 4,
+        },
+      })
+
+      // @ts-ignore
       pendo.initialize({
         visitor: {
           id: 'jonathan',
