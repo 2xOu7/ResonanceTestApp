@@ -10,7 +10,10 @@ export default class Appcues extends Component {
           'https://app.staging.useresonance.com/api/appcues/getbestmessages',
           {
             externalUserId: 'test_user_id',
-            userAttributes: { restaurant_type: 'bakery' },
+            userAttributes: {
+              restaurant_type: 'bakery',
+              industry: 'education',
+            },
           },
           {
             headers: {
