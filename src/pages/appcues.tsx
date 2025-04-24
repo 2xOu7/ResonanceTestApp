@@ -12,7 +12,7 @@ export default class Appcues extends Component {
             externalUserId: 'test_user_id',
             userAttributes: {
               restaurant_type: 'bakery',
-              industry: 'education',
+              vertical: 'education',
             },
           },
           {
@@ -51,6 +51,7 @@ export default class Appcues extends Component {
             name: 'Katherine Pioro',
             email: 'katherine@useresonance.com',
             restaurant_type: 'bakery',
+            vertical: 'education',
             ...allCampaignContentKeys,
           })
 
