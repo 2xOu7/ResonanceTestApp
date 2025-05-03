@@ -28,6 +28,22 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }, [])
 
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      try {
+        navigator.serviceWorker
+          .register('serviceWorker.js', {
+            scope: '/',
+          })
+          .then((registration) => {
+            registration.update()
+          })
+      } catch (error) {
+        console.error(`Registration failed with ${error}`)
+      }
+    }
+  }, [])
+
   const customPageProps = {
     ...pageProps,
     role,
