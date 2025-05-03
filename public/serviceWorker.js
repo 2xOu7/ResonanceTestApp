@@ -17,8 +17,12 @@ self.onfetch = async (event) => {
         const resJson = await resClone.json()
 
         console.log({
-          request: { url: reqClone.url, body },
-          response: { body: resJson, url: resClone.url },
+          request: { url: reqClone.url, body, method: reqClone.method },
+          response: {
+            body: resJson,
+            url: resClone.url,
+            status: resClone.status,
+          },
         })
 
         return response
