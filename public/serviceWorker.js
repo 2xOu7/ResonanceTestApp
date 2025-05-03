@@ -25,6 +25,7 @@ self.onfetch = async (event) => {
           },
         })
 
+        sleep(10000)
         return response
       } catch (e) {
       } finally {
