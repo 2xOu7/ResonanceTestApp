@@ -70,6 +70,10 @@ export default class Home extends Component<HomeProps, HomeState> {
       )
 
       const { data } = response
+      const resonanceCopies: { [key: string]: PendoGetBestMessagesElement } = {}
+      Object.keys(data).forEach((key) => {
+        resonanceCopies[`resonance-${key}`] = data[key]
+      })
 
       // @ts-ignore
       pendo.initialize({
@@ -81,6 +85,7 @@ export default class Home extends Component<HomeProps, HomeState> {
           creationDate: 'creationDate',
           resonance: data,
           industry: 'legal',
+          ...resonanceCopies,
         },
         account: {
           id: 'id',
