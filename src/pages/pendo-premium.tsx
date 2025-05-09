@@ -72,7 +72,7 @@ export default class Home extends Component<HomeProps, HomeState> {
       const { data } = response
       const resonanceCopies: { [key: string]: PendoGetBestMessagesElement } = {}
       Object.keys(data).forEach((key) => {
-        resonanceCopies[`resonance-${key}`] = data[key]
+        resonanceCopies[`resonance_${key}`] = data[key]
       })
 
       // @ts-ignore
