@@ -67,7 +67,7 @@ export default class Appcues extends Component {
     return (
       <>
         <Pane
-          display="flex"
+          display={'flex'}
           padding={16}
           background={'tint2'}
           borderRadius={3}
