@@ -50,7 +50,8 @@ export default class Appcues extends Component {
           window.Appcues.identify('test_user_id', {
             name: 'Katherine Pioro',
             email: 'katherine@useresonance.com',
-            restaurant_type: 'bakery',
+            restaurant_type: 'fine dining',
+            restaurant_cuisine: 'Italian',
             vertical: 'education',
             ...allCampaignContentKeys,
           })
