@@ -11,7 +11,8 @@ export default class Appcues extends Component {
           {
             externalUserId: 'test_user_id',
             userAttributes: {
-              restaurant_type: 'bakery',
+              restaurant_type: 'fine dining',
+              restaurant_cuisine: 'Italian',
               vertical: 'education',
             },
           },
